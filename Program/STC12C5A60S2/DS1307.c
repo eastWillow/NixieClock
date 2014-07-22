@@ -10,8 +10,8 @@ sbit HV_EN = P1^2;
 void I2CStart(void);
 void I2CEnd(void);
 void I2CSendAck(bit ACK/*0 = ACK*/);
-bit I2CReceiveAck(void);
-bit I2CSendByte(unsigned char Data);
+void I2CReceiveAck(void);
+void I2CSendByte(unsigned char Data);
 unsigned char I2CRecvByte(void);
 void UartInit(void);
 void uartSend (char *string,char len,char EOL);
@@ -22,9 +22,9 @@ void main(void){
 	unsigned char buffer;
 	UartInit();
 	while(1){
-		I2CStart();
-		I2CSendByte(DS1307_DEVICES_ADRESS);
-		I2CSendByte(DS1307_DATE);
+		//I2CStart();
+		//I2CSendByte(DS1307_DEVICES_ADRESS);
+		//I2CSendByte(DS1307_DATE);
 		I2CStart();
 		I2CSendByte(DS1307_DEVICES_ADRESS+1);
 		buffer = I2CRecvByte();
@@ -49,6 +49,7 @@ void I2CStart(void){
 	SDA = 0;
 	Delay5us();
 	SCL = 0;
+	Delay5us();
 }
 void I2CEnd(void){
 	SDA = 0;
@@ -64,25 +65,26 @@ void I2CSendAck(bit ACK/*0 = ACK*/){
 	SCL = 0;
 	Delay5us();
 }
-bit I2CReceiveAck(void){
+void I2CReceiveAck(void){
 	bit ACK;
 	SCL = 1;
 	Delay5us();
-	ACK = SDA;
+	//SDA = 1;
+	while(SDA != 0);
+	//ACK = SDA;
 	SCL = 0;
 	Delay5us();
-	return ACK;
 }
-bit I2CSendByte(unsigned char Data){
+void I2CSendByte(unsigned char Data){
 	unsigned char i;
-	for(i=0;i<8;i++){
+	for(i=1;i<9;i++){
 		SDA = _crol_(Data,i)&0x01;
 		SCL = 1;
 		Delay5us();
 		SCL = 0;
 		Delay5us();
 	}
-	return I2CReceiveAck();
+	I2CReceiveAck();
 }
 unsigned char I2CRecvByte(void){
 	unsigned char i;
