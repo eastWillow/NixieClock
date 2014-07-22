@@ -24,6 +24,8 @@
 
 # Keil C
 *.lnp
-#.plg
+*.plg
 *.uvgui.*
 *.uvopt
+*.LST
+*.bak
