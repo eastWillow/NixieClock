@@ -1,0 +1,793 @@
+; .\DS1307.SRC generated from: DS1307.c
+; COMPILER INVOKED BY:
+;        C:\Keil\C51\BIN\C51.EXE DS1307.c OPTIMIZE(0,SPEED) REGFILE(.\nixieclockSTC.ORC) BROWSE NOREGPARMS DEBUG OBJECTEXTEND TABS(2) SRC(.\DS1307.SRC)
+
+$NOMOD51
+
+NAME	DS1307
+
+P1M0	DATA	092H
+P0M1	DATA	093H
+P2M0	DATA	096H
+P1M1	DATA	091H
+P0	DATA	080H
+P3M0	DATA	0B2H
+P2M1	DATA	095H
+P1	DATA	090H
+P4M0	DATA	0B4H
+P3M1	DATA	0B1H
+P2	DATA	0A0H
+P5M0	DATA	0CAH
+P4M1	DATA	0B3H
+P3	DATA	0B0H
+P5M1	DATA	0C9H
+P4	DATA	0C0H
+AC	BIT	0D0H.6
+P5	DATA	0C8H
+EA	BIT	0A8H.7
+SPCTL	DATA	0CEH
+CF	BIT	0D8H.7
+CH	DATA	0F9H
+EADC	BIT	0A8H.5
+IE	DATA	0A8H
+CL	DATA	0E9H
+IAP_CMD	DATA	0C5H
+CCAP0H	DATA	0FAH
+HV_EN	BIT	090H.2
+CCAP1H	DATA	0FBH
+ADC_RES	DATA	0BDH
+IPH2	DATA	0B6H
+CCAP0L	DATA	0EAH
+CR	BIT	0D8H.6
+CCAP1L	DATA	0EBH
+CCAPM0	DATA	0DAH
+CCAPM1	DATA	0DBH
+ES	BIT	0A8H.4
+PADC	BIT	0B8H.5
+IP	DATA	0B8H
+RI	BIT	098H.0
+CY	BIT	0D0H.7
+TI	BIT	098H.1
+CLK_DIV	DATA	097H
+IAP_ADDRH	DATA	0C3H
+PS	BIT	0B8H.4
+SP	DATA	081H
+IAP_ADDRL	DATA	0C4H
+CMOD	DATA	0D9H
+CCON	DATA	0D8H
+PPCA	BIT	0B8H.7
+OV	BIT	0D0H.2
+ELVD	BIT	0A8H.6
+P4SW	DATA	0BBH
+ADC_CONTR	DATA	0BCH
+SBUF	DATA	099H
+PCON	DATA	087H
+SCON	DATA	098H
+WAKE_CLKO	DATA	08FH
+TMOD	DATA	089H
+TCON	DATA	088H
+PLVD	BIT	0B8H.6
+IE0	BIT	088H.1
+BUS_SPEED	DATA	0A1H
+NUMBER_EN	BIT	090H.3
+IE1	BIT	088H.3
+IE2	DATA	0AFH
+AUXR	DATA	08EH
+B	DATA	0F0H
+IAP_CONTR	DATA	0C7H
+ACC	DATA	0E0H
+ET0	BIT	0A8H.1
+TF0	BIT	088H.5
+ET1	BIT	0A8H.3
+TF1	BIT	088H.7
+IP2	DATA	0B5H
+RB8	BIT	098H.2
+TH0	DATA	08CH
+TH1	DATA	08DH
+IT0	BIT	088H.0
+EX0	BIT	0A8H.0
+TB8	BIT	098H.3
+IT1	BIT	088H.2
+EX1	BIT	0A8H.2
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+TL1	DATA	08BH
+SM2	BIT	098H.5
+PT0	BIT	0B8H.1
+PT1	BIT	0B8H.3
+RS0	BIT	0D0H.3
+IAP_DATA	DATA	0C2H
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+TR1	BIT	088H.6
+SDA	BIT	090H.0
+WDT_CONTR	DATA	0C1H
+PX0	BIT	0B8H.0
+PX1	BIT	0B8H.2
+PCA_PWM0	DATA	0F2H
+PCA_PWM1	DATA	0F3H
+P1ASF	DATA	09DH
+DPH	DATA	083H
+ADC_RESL	DATA	0BEH
+DPL	DATA	082H
+SPSTAT	DATA	0CDH
+IPH	DATA	0B7H
+SCL	BIT	090H.1
+S2BUF	DATA	09BH
+REN	BIT	098H.4
+S2CON	DATA	09AH
+BRT	DATA	09CH
+SADEN	DATA	0B9H
+SADDR	DATA	0A9H
+IAP_TRIG	DATA	0C6H
+AUXR1	DATA	0A2H
+F0	BIT	0D0H.5
+PSW	DATA	0D0H
+CCF0	BIT	0D8H.0
+SPDAT	DATA	0CFH
+CCF1	BIT	0D8H.1
+P0M0	DATA	094H
+?PR?main?DS1307      SEGMENT CODE 
+?PR?I2CStart?DS1307  SEGMENT CODE 
+?PR?I2CEnd?DS1307    SEGMENT CODE 
+?PR?I2CSendAck?DS1307                    SEGMENT CODE 
+?BI?I2CSendAck?DS1307                    SEGMENT BIT 
+?PR?I2CReceiveAck?DS1307                 SEGMENT CODE 
+?PR?I2CSendByte?DS1307                   SEGMENT CODE 
+?DT?I2CSendByte?DS1307                   SEGMENT DATA 
+?PR?I2CRecvByte?DS1307                   SEGMENT CODE 
+?DT?I2CRecvByte?DS1307                   SEGMENT DATA 
+?PR?UartInit?DS1307  SEGMENT CODE 
+?PR?uartSend?DS1307  SEGMENT CODE 
+?DT?uartSend?DS1307  SEGMENT DATA 
+?PR?uartSendHex?DS1307                   SEGMENT CODE 
+?DT?uartSendHex?DS1307                   SEGMENT DATA 
+?PR?uartReceive?DS1307                   SEGMENT CODE 
+?DT?DS1307           SEGMENT DATA 
+?DT?uartReceive?DS1307                   SEGMENT DATA 
+?PR?Delay5us?DS1307  SEGMENT CODE 
+?DT?Delay5us?DS1307  SEGMENT DATA 
+?CO?DS1307           SEGMENT CODE 
+	EXTRN	CODE (?C_STARTUP)
+	EXTRN	CODE (?C?CLDOPTR)
+	PUBLIC	Delay5us
+	PUBLIC	?uartReceive?BYTE
+	PUBLIC	uartReceive
+	PUBLIC	?uartSendHex?BYTE
+	PUBLIC	uartSendHex
+	PUBLIC	?uartSend?BYTE
+	PUBLIC	uartSend
+	PUBLIC	UartInit
+	PUBLIC	I2CRecvByte
+	PUBLIC	?I2CSendByte?BYTE
+	PUBLIC	I2CSendByte
+	PUBLIC	I2CReceiveAck
+	PUBLIC	?I2CSendAck?BIT
+	PUBLIC	I2CSendAck
+	PUBLIC	I2CEnd
+	PUBLIC	I2CStart
+	PUBLIC	main
+
+	RSEG  ?DT?uartReceive?DS1307
+?uartReceive?BYTE:
+       len?1050:   DS   1
+	ORG  1
+         i?1051:   DS   2
+
+	RSEG  ?DT?Delay5us?DS1307
+?Delay5us?BYTE:
+         i?1153:   DS   1
+	ORG  1
+         j?1154:   DS   1
+
+	RSEG  ?DT?uartSend?DS1307
+?uartSend?BYTE:
+     string?845:   DS   3
+	ORG  3
+        len?846:   DS   1
+	ORG  4
+        EOL?847:   DS   1
+	ORG  5
+          i?848:   DS   1
+
+	RSEG  ?BI?I2CSendAck?DS1307
+?I2CSendAck?BIT:
+        ACK?340:   DBIT   1
+
+	RSEG  ?DT?I2CSendByte?DS1307
+?I2CSendByte?BYTE:
+       Data?541:   DS   1
+	ORG  1
+          i?542:   DS   1
+
+	RSEG  ?DT?I2CRecvByte?DS1307
+?I2CRecvByte?BYTE:
+          i?643:   DS   1
+	ORG  1
+     buffer?644:   DS   1
+
+	RSEG  ?DT?uartSendHex?DS1307
+?uartSendHex?BYTE:
+       Data?949:   DS   1
+
+	RSEG  ?DT?DS1307
+    string?1052:   DS   10
+
+	RSEG  ?CO?DS1307
+?SC_0:
+	DB  'H' ,'e' ,'l' ,'l' ,'o' ,'W' ,'o' ,'r' ,'l' ,'d' 
+	DB  000H
+
+; #include <STC12C5A60S2.h>
+; #include <DS1307.h>
+; #include <intrins.h>
+; #define DISPLAY P0
+; #define NUMBER P2
+; sbit SDA = P1^0;
+; sbit SCL = P1^1;
+; sbit NUMBER_EN = P1^3;
+; sbit HV_EN = P1^2;
+; void I2CStart(void);
+; void I2CEnd(void);
+; void I2CSendAck(bit ACK/*0 = ACK*/);
+; void I2CReceiveAck(void);
+; void I2CSendByte(unsigned char Data);
+; unsigned char I2CRecvByte(void);
+; void UartInit(void);
+; void uartSend (char *string,char len,char EOL);
+; char *uartReceive(char len);
+; void Delay5us();
+; void uartSendHex (unsigned char Data);
+; void main(void){
+
+	RSEG  ?PR?main?DS1307
+main:
+	USING	0
+			; SOURCE LINE # 21
+; 	//unsigned char buffer2;
+; 	UartInit();
+			; SOURCE LINE # 23
+	LCALL	UartInit
+?C0001:
+; 	while(1){
+			; SOURCE LINE # 24
+; 		//I2CStart();
+; 		//I2CSendByte(DS1307_DEVICES_ADRESS);
+; 		//I2CSendByte(DS1307_DATE);
+; 		//I2CStart();
+; 		//I2CSendByte(DS1307_DEVICES_ADRESS+1);
+; 		//buffer2 = I2CRecvByte();
+; 		//I2CSendAck(1);
+; 		//I2CEnd();
+; 		uartSend("HelloWorld",10,1);
+			; SOURCE LINE # 33
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_0)
+	MOV  	R1,#LOW (?SC_0)
+	MOV  	?uartSend?BYTE,R3
+	MOV  	?uartSend?BYTE+01H,R2
+	MOV  	?uartSend?BYTE+02H,R1
+	MOV  	?uartSend?BYTE+03H,#0AH
+	MOV  	?uartSend?BYTE+04H,#01H
+	LCALL	uartSend
+; 	}
+			; SOURCE LINE # 34
+	SJMP 	?C0001
+?C0002:
+; }
+			; SOURCE LINE # 35
+?C0003:
+	RET  	
+; END OF main
+
+; /*
+; I2C Time
+; SDA = data
+; delay
+; SCL = 1
+; delay
+; SCL = 0
+; delay
+; */
+; void I2CStart(void){
+
+	RSEG  ?PR?I2CStart?DS1307
+I2CStart:
+	USING	0
+			; SOURCE LINE # 45
+; 	SDA = 1;
+			; SOURCE LINE # 46
+	SETB 	SDA
+; 	SCL = 1;
+			; SOURCE LINE # 47
+	SETB 	SCL
+; 	Delay5us();
+			; SOURCE LINE # 48
+	LCALL	Delay5us
+; 	SDA = 0;
+			; SOURCE LINE # 49
+	CLR  	SDA
+; 	Delay5us();
+			; SOURCE LINE # 50
+	LCALL	Delay5us
+; 	SCL = 0;
+			; SOURCE LINE # 51
+	CLR  	SCL
+; 	Delay5us();
+			; SOURCE LINE # 52
+	LCALL	Delay5us
+; }
+			; SOURCE LINE # 53
+?C0004:
+	RET  	
+; END OF I2CStart
+
+; void I2CEnd(void){
+
+	RSEG  ?PR?I2CEnd?DS1307
+I2CEnd:
+	USING	0
+			; SOURCE LINE # 54
+; 	SDA = 0;
+			; SOURCE LINE # 55
+	CLR  	SDA
+; 	SCL = 1;
+			; SOURCE LINE # 56
+	SETB 	SCL
+; 	Delay5us();
+			; SOURCE LINE # 57
+	LCALL	Delay5us
+; 	SDA = 1;
+			; SOURCE LINE # 58
+	SETB 	SDA
+; 	Delay5us();
+			; SOURCE LINE # 59
+	LCALL	Delay5us
+; }
+			; SOURCE LINE # 60
+?C0005:
+	RET  	
+; END OF I2CEnd
+
+; void I2CSendAck(bit ACK/*0 = ACK*/){
+
+	RSEG  ?PR?I2CSendAck?DS1307
+I2CSendAck:
+	USING	0
+			; SOURCE LINE # 61
+; 	SDA = ACK;
+			; SOURCE LINE # 62
+	MOV  	C,ACK?340
+	MOV  	SDA,C
+; 	SCL = 1;
+			; SOURCE LINE # 63
+	SETB 	SCL
+; 	Delay5us();
+			; SOURCE LINE # 64
+	LCALL	Delay5us
+; 	SCL = 0;
+			; SOURCE LINE # 65
+	CLR  	SCL
+; 	Delay5us();
+			; SOURCE LINE # 66
+	LCALL	Delay5us
+; }
+			; SOURCE LINE # 67
+?C0006:
+	RET  	
+; END OF I2CSendAck
+
+; void I2CReceiveAck(void){
+
+	RSEG  ?PR?I2CReceiveAck?DS1307
+I2CReceiveAck:
+	USING	0
+			; SOURCE LINE # 68
+; 	SCL = 1;
+			; SOURCE LINE # 69
+	SETB 	SCL
+; 	Delay5us();
+			; SOURCE LINE # 70
+	LCALL	Delay5us
+?C0007:
+; 	//SDA = 1;
+; 	while(SDA != 0);
+			; SOURCE LINE # 72
+	JB   	SDA,?C0007
+?C0008:
+; 	//ACK = SDA;
+; 	SCL = 0;
+			; SOURCE LINE # 74
+	CLR  	SCL
+; 	Delay5us();
+			; SOURCE LINE # 75
+	LCALL	Delay5us
+; }
+			; SOURCE LINE # 76
+?C0009:
+	RET  	
+; END OF I2CReceiveAck
+
+; void I2CSendByte(unsigned char Data){
+
+	RSEG  ?PR?I2CSendByte?DS1307
+I2CSendByte:
+	USING	0
+			; SOURCE LINE # 77
+; 	unsigned char i;
+; 	for(i=1;i<9;i++){
+			; SOURCE LINE # 79
+	MOV  	i?542,#01H
+?C0010:
+	MOV  	A,i?542
+	CLR  	C
+	SUBB 	A,#09H
+	JNC  	?C0011
+; 		SDA = _crol_(Data,i)&0x01;
+			; SOURCE LINE # 80
+	MOV  	R7,Data?541
+	MOV  	R6,i?542
+	MOV  	R0,AR6
+	MOV  	A,R7
+	INC  	R0
+	SJMP 	?C0046
+?C0045:
+	RL   	A
+?C0046:
+	DJNZ 	R0,?C0045
+	MOV  	R7,A
+	MOV  	A,R7
+	RRC  	A
+	MOV  	SDA,C
+; 		SCL = 1;
+			; SOURCE LINE # 81
+	SETB 	SCL
+; 		Delay5us();
+			; SOURCE LINE # 82
+	LCALL	Delay5us
+; 		SCL = 0;
+			; SOURCE LINE # 83
+	CLR  	SCL
+; 		Delay5us();
+			; SOURCE LINE # 84
+	LCALL	Delay5us
+; 	}
+			; SOURCE LINE # 85
+?C0012:
+	INC  	i?542
+	SJMP 	?C0010
+?C0011:
+; 	I2CReceiveAck();
+			; SOURCE LINE # 86
+	LCALL	I2CReceiveAck
+; }
+			; SOURCE LINE # 87
+?C0013:
+	RET  	
+; END OF I2CSendByte
+
+; unsigned char I2CRecvByte(void){
+
+	RSEG  ?PR?I2CRecvByte?DS1307
+I2CRecvByte:
+	USING	0
+			; SOURCE LINE # 88
+; 	unsigned char i;
+; 	unsigned char buffer = 0;
+			; SOURCE LINE # 90
+	MOV  	buffer?644,#00H
+; 	SDA = 1;
+			; SOURCE LINE # 91
+	SETB 	SDA
+; 	for(i=0;i<8;i++){
+			; SOURCE LINE # 92
+	MOV  	i?643,#00H
+?C0014:
+	MOV  	A,i?643
+	CLR  	C
+	SUBB 	A,#08H
+	JNC  	?C0015
+; 		buffer = _crol_(buffer,1);
+			; SOURCE LINE # 93
+	MOV  	R7,buffer?644
+	MOV  	R0,#01H
+	MOV  	A,R7
+	INC  	R0
+	SJMP 	?C0048
+?C0047:
+	RL   	A
+?C0048:
+	DJNZ 	R0,?C0047
+	MOV  	R7,A
+	MOV  	buffer?644,R7
+; 		SCL = 1;
+			; SOURCE LINE # 94
+	SETB 	SCL
+; 		Delay5us();
+			; SOURCE LINE # 95
+	LCALL	Delay5us
+; 		buffer = SDA | buffer;
+			; SOURCE LINE # 96
+	MOV  	C,SDA
+	CLR  	A
+	RLC  	A
+	MOV  	R7,A
+	MOV  	A,R7
+	ORL  	buffer?644,A
+; 		SCL = 0;
+			; SOURCE LINE # 97
+	CLR  	SCL
+; 		Delay5us();
+			; SOURCE LINE # 98
+	LCALL	Delay5us
+; 	}
+			; SOURCE LINE # 99
+?C0016:
+	INC  	i?643
+	SJMP 	?C0014
+?C0015:
+; 	return buffer;
+			; SOURCE LINE # 100
+	MOV  	R7,buffer?644
+; }
+			; SOURCE LINE # 101
+?C0017:
+	RET  	
+; END OF I2CRecvByte
+
+; void UartInit(void)		//9600bps@12.000MHz
+
+	RSEG  ?PR?UartInit?DS1307
+UartInit:
+			; SOURCE LINE # 102
+; {
+			; SOURCE LINE # 103
+; 	PCON |= 0x80;		//Enable SMOD bit
+			; SOURCE LINE # 104
+	ORL  	PCON,#080H
+; 	SCON = 0x50;		//8bit and variable baudrate
+			; SOURCE LINE # 105
+	MOV  	SCON,#050H
+; 	AUXR |= 0x04;		//BRT's clock is Fosc (1T)
+			; SOURCE LINE # 106
+	ORL  	AUXR,#04H
+; 	BRT = 0xB2;		//Set BRT's reload value
+			; SOURCE LINE # 107
+	MOV  	BRT,#0B2H
+; 	AUXR |= 0x01;		//Use BRT as baudrate generator
+			; SOURCE LINE # 108
+	ORL  	AUXR,#01H
+; 	AUXR |= 0x10;		//BRT running
+			; SOURCE LINE # 109
+	ORL  	AUXR,#010H
+; }
+			; SOURCE LINE # 110
+?C0018:
+	RET  	
+; END OF UartInit
+
+; void uartSend (char *string,char len,char EOL){
+
+	RSEG  ?PR?uartSend?DS1307
+uartSend:
+	USING	0
+			; SOURCE LINE # 111
+; 	unsigned char i;
+; 	for(i=0;i<len;i++){
+			; SOURCE LINE # 113
+	MOV  	i?848,#00H
+?C0019:
+	MOV  	R7,len?846
+	MOV  	A,R7
+	RLC  	A
+	SUBB 	A,ACC
+	MOV  	R6,A
+	MOV  	R5,i?848
+	MOV  	R4,#00H
+	CLR  	C
+	MOV  	A,R5
+	SUBB 	A,R7
+	MOV  	A,R6
+	XRL  	A,#080H
+	MOV  	R0,A
+	MOV  	A,R4
+	XRL  	A,#080H
+	SUBB 	A,R0
+	JNC  	?C0020
+; 		SBUF = string[i];
+			; SOURCE LINE # 114
+	MOV  	R3,string?845
+	MOV  	R2,string?845+01H
+	MOV  	R1,string?845+02H
+	MOV  	R7,i?848
+	MOV  	DPL,R7
+	MOV  	DPH,#00H
+	LCALL	?C?CLDOPTR
+	MOV  	R7,A
+	MOV  	SBUF,R7
+?C0022:
+; 		while(!TI);
+			; SOURCE LINE # 115
+	JNB  	TI,?C0022
+?C0023:
+; 		TI=0;
+			; SOURCE LINE # 116
+	CLR  	TI
+; 	}
+			; SOURCE LINE # 117
+?C0021:
+	INC  	i?848
+	SJMP 	?C0019
+?C0020:
+; 	if(EOL == 1){
+			; SOURCE LINE # 118
+	MOV  	A,EOL?847
+	CJNE 	A,#01H,?C0029
+; 		SBUF = 0x0D;
+			; SOURCE LINE # 119
+	MOV  	SBUF,#0DH
+?C0025:
+; 		while(!TI);
+			; SOURCE LINE # 120
+	JNB  	TI,?C0025
+?C0026:
+; 		TI=0;
+			; SOURCE LINE # 121
+	CLR  	TI
+; 		SBUF = 0x0A;
+			; SOURCE LINE # 122
+	MOV  	SBUF,#0AH
+?C0027:
+; 		while(!TI);
+			; SOURCE LINE # 123
+	JNB  	TI,?C0027
+?C0028:
+; 		TI=0;
+			; SOURCE LINE # 124
+	CLR  	TI
+; 	}
+			; SOURCE LINE # 125
+?C0024:
+; }
+			; SOURCE LINE # 126
+?C0029:
+	RET  	
+; END OF uartSend
+
+; void uartSendHex (unsigned char Data){
+
+	RSEG  ?PR?uartSendHex?DS1307
+uartSendHex:
+			; SOURCE LINE # 127
+; 	SBUF = Data;
+			; SOURCE LINE # 128
+	MOV  	SBUF,Data?949
+?C0030:
+; 	while(!TI);
+			; SOURCE LINE # 129
+	JNB  	TI,?C0030
+?C0031:
+; 	TI=0;
+			; SOURCE LINE # 130
+	CLR  	TI
+; }
+			; SOURCE LINE # 131
+?C0032:
+	RET  	
+; END OF uartSendHex
+
+; char *uartReceive(char len){
+
+	RSEG  ?PR?uartReceive?DS1307
+uartReceive:
+	USING	0
+			; SOURCE LINE # 132
+; 	int i;
+; 	static unsigned char string[10];
+; 	for(i=0;i<len;i++){
+			; SOURCE LINE # 135
+	MOV  	i?1051,#00H
+	MOV  	i?1051+01H,#00H
+?C0033:
+	MOV  	R7,len?1050
+	MOV  	A,R7
+	RLC  	A
+	SUBB 	A,ACC
+	MOV  	R6,A
+	CLR  	C
+	MOV  	A,i?1051+01H
+	SUBB 	A,R7
+	MOV  	A,R6
+	XRL  	A,#080H
+	MOV  	R0,A
+	MOV  	A,i?1051
+	XRL  	A,#080H
+	SUBB 	A,R0
+	JNC  	?C0034
+?C0036:
+; 		while(!RI);
+			; SOURCE LINE # 136
+	JNB  	RI,?C0036
+?C0037:
+; 		string[i]=SBUF;
+			; SOURCE LINE # 137
+	MOV  	R7,i?1051+01H
+	MOV  	A,#LOW (string?1052)
+	ADD  	A,R7
+	MOV  	R0,A
+	MOV  	@R0,SBUF
+; 		RI = 0;
+			; SOURCE LINE # 138
+	CLR  	RI
+; 	}
+			; SOURCE LINE # 139
+?C0035:
+	INC  	i?1051+01H
+	MOV  	A,i?1051+01H
+	JNZ  	?C0049
+	INC  	i?1051
+?C0049:
+	SJMP 	?C0033
+?C0034:
+; 	return string;
+			; SOURCE LINE # 140
+	MOV  	R3,#00H
+	MOV  	R2,#HIGH (string?1052)
+	MOV  	R1,#LOW (string?1052)
+; }
+			; SOURCE LINE # 141
+?C0038:
+	RET  	
+; END OF uartReceive
+
+; void Delay5us()		//@12.000MHz
+
+	RSEG  ?PR?Delay5us?DS1307
+Delay5us:
+	USING	0
+			; SOURCE LINE # 142
+; {
+			; SOURCE LINE # 143
+; 	unsigned char i, j;
+; 
+; 	_nop_();
+			; SOURCE LINE # 146
+	NOP  	
+; 	_nop_();
+			; SOURCE LINE # 147
+	NOP  	
+; 	i = 1;
+			; SOURCE LINE # 148
+	MOV  	i?1153,#01H
+; 	j = 145;
+			; SOURCE LINE # 149
+	MOV  	j?1154,#091H
+?C0041:
+; 	do
+; 	{
+			; SOURCE LINE # 151
+?C0042:
+; 		while (--j);
+			; SOURCE LINE # 152
+	DEC  	j?1154
+	MOV  	R7,j?1154
+	MOV  	A,R7
+	JNZ  	?C0042
+?C0043:
+; 	} while (--i);
+			; SOURCE LINE # 153
+?C0039:
+	DEC  	i?1153
+	MOV  	R7,i?1153
+	MOV  	A,R7
+	JNZ  	?C0042
+?C0040:
+; }
+			; SOURCE LINE # 154
+?C0044:
+	RET  	
+; END OF Delay5us
+
+	END

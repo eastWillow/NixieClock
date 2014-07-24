@@ -18,19 +18,23 @@ void uartSend (char *string,char len,char EOL);
 char *uartReceive(char len);
 void Delay5us();
 void uartSendHex (unsigned char Data);
+void Delay500ms();
 void main(void){
-	unsigned char buffer;
+	unsigned char buffer2;
 	UartInit();
 	while(1){
-		//I2CStart();
-		//I2CSendByte(DS1307_DEVICES_ADRESS);
-		//I2CSendByte(DS1307_DATE);
+		I2CStart();
+		I2CSendByte(DS1307_DEVICES_ADRESS);
+		I2CSendByte(DS1307_SECONDS);
 		I2CStart();
 		I2CSendByte(DS1307_DEVICES_ADRESS+1);
-		buffer = I2CRecvByte();
+		buffer2 = I2CRecvByte();
 		I2CSendAck(1);
 		I2CEnd();
-		uartSendHex(buffer);
+		SBUF = buffer2;
+		while(!TI);
+		TI=0;
+		Delay500ms();
 	}
 }
 /*
@@ -66,7 +70,6 @@ void I2CSendAck(bit ACK/*0 = ACK*/){
 	Delay5us();
 }
 void I2CReceiveAck(void){
-	bit ACK;
 	SCL = 1;
 	Delay5us();
 	//SDA = 1;
@@ -88,13 +91,13 @@ void I2CSendByte(unsigned char Data){
 }
 unsigned char I2CRecvByte(void){
 	unsigned char i;
-	unsigned char buffer;
+	unsigned char buffer = 0;
 	SDA = 1;
 	for(i=0;i<8;i++){
 		buffer = _crol_(buffer,1);
 		SCL = 1;
 		Delay5us();
-		buffer |= SDA;
+		buffer = SDA | buffer;
 		SCL = 0;
 		Delay5us();
 	}
@@ -102,17 +105,15 @@ unsigned char I2CRecvByte(void){
 }
 void UartInit(void)		//9600bps@12.000MHz
 {
+	PCON |= 0x80;		//Enable SMOD bit
 	SCON = 0x50;		//8bit and variable baudrate
-	AUXR |= 0x40;		//Timer1's clock is Fosc (1T)
-	AUXR &= 0xFE;		//Use Timer1 as baudrate generator
-	TMOD &= 0x0F;		//Set Timer1 as 16-bit auto reload mode
-	TL1 = 0xC7;		//Initial timer value
-	TH1 = 0xFE;		//Initial timer value
-	ET1 = 0;		//Disable Timer1 interrupt
-	TR1 = 1;		//Timer1 running
+	AUXR |= 0x04;		//BRT's clock is Fosc (1T)
+	BRT = 0xB2;		//Set BRT's reload value
+	AUXR |= 0x01;		//Use BRT as baudrate generator
+	AUXR |= 0x10;		//BRT running
 }
 void uartSend (char *string,char len,char EOL){
-	int i;
+	unsigned char i;
 	for(i=0;i<len;i++){
 		SBUF = string[i];
 		while(!TI);
@@ -153,5 +154,20 @@ void Delay5us()		//@12.000MHz
 	do
 	{
 		while (--j);
+	} while (--i);
+}
+void Delay500ms()		//@12.000MHz
+{
+	unsigned char i, j, k;
+
+	i = 23;
+	j = 205;
+	k = 120;
+	do
+	{
+		do
+		{
+			while (--k);
+		} while (--j);
 	} while (--i);
 }

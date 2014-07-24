@@ -1,0 +1,1081 @@
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN DS1307.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE DS1307.src PR(.\DS1307.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\DS1307.SRC generated from: DS1307.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\Keil\C51\BIN\C51.EXE DS1307.c OPTIMIZE(0,SPEED) REGFILE(.\nixieclockSTC.ORC) BR
+                             OWSE NOREGPARMS DEBUG OBJECTEXTEND TABS(2) SRC(.\DS1307.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    DS1307
+                       8     
+  0092                 9     P1M0    DATA    092H
+  0093                10     P0M1    DATA    093H
+  0096                11     P2M0    DATA    096H
+  0091                12     P1M1    DATA    091H
+  0080                13     P0      DATA    080H
+  00B2                14     P3M0    DATA    0B2H
+  0095                15     P2M1    DATA    095H
+  0090                16     P1      DATA    090H
+  00B4                17     P4M0    DATA    0B4H
+  00B1                18     P3M1    DATA    0B1H
+  00A0                19     P2      DATA    0A0H
+  00CA                20     P5M0    DATA    0CAH
+  00B3                21     P4M1    DATA    0B3H
+  00B0                22     P3      DATA    0B0H
+  00C9                23     P5M1    DATA    0C9H
+  00C0                24     P4      DATA    0C0H
+  00D6                25     AC      BIT     0D0H.6
+  00C8                26     P5      DATA    0C8H
+  00AF                27     EA      BIT     0A8H.7
+  00CE                28     SPCTL   DATA    0CEH
+  00DF                29     CF      BIT     0D8H.7
+  00F9                30     CH      DATA    0F9H
+  00AD                31     EADC    BIT     0A8H.5
+  00A8                32     IE      DATA    0A8H
+  00E9                33     CL      DATA    0E9H
+  00C5                34     IAP_CMD DATA    0C5H
+  00FA                35     CCAP0H  DATA    0FAH
+  0092                36     HV_EN   BIT     090H.2
+  00FB                37     CCAP1H  DATA    0FBH
+  00BD                38     ADC_RES DATA    0BDH
+  00B6                39     IPH2    DATA    0B6H
+  00EA                40     CCAP0L  DATA    0EAH
+  00DE                41     CR      BIT     0D8H.6
+  00EB                42     CCAP1L  DATA    0EBH
+  00DA                43     CCAPM0  DATA    0DAH
+  00DB                44     CCAPM1  DATA    0DBH
+  00AC                45     ES      BIT     0A8H.4
+  00BD                46     PADC    BIT     0B8H.5
+  00B8                47     IP      DATA    0B8H
+  0098                48     RI      BIT     098H.0
+  00D7                49     CY      BIT     0D0H.7
+  0099                50     TI      BIT     098H.1
+  0097                51     CLK_DIV DATA    097H
+  00C3                52     IAP_ADDRH       DATA    0C3H
+  00BC                53     PS      BIT     0B8H.4
+  0081                54     SP      DATA    081H
+  00C4                55     IAP_ADDRL       DATA    0C4H
+  00D9                56     CMOD    DATA    0D9H
+  00D8                57     CCON    DATA    0D8H
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE     2
+
+  00BF                58     PPCA    BIT     0B8H.7
+  00D2                59     OV      BIT     0D0H.2
+  00AE                60     ELVD    BIT     0A8H.6
+  00BB                61     P4SW    DATA    0BBH
+  00BC                62     ADC_CONTR       DATA    0BCH
+  0099                63     SBUF    DATA    099H
+  0087                64     PCON    DATA    087H
+  0098                65     SCON    DATA    098H
+  008F                66     WAKE_CLKO       DATA    08FH
+  0089                67     TMOD    DATA    089H
+  0088                68     TCON    DATA    088H
+  00BE                69     PLVD    BIT     0B8H.6
+  0089                70     IE0     BIT     088H.1
+  00A1                71     BUS_SPEED       DATA    0A1H
+  0093                72     NUMBER_EN       BIT     090H.3
+  008B                73     IE1     BIT     088H.3
+  00AF                74     IE2     DATA    0AFH
+  008E                75     AUXR    DATA    08EH
+  00F0                76     B       DATA    0F0H
+  00C7                77     IAP_CONTR       DATA    0C7H
+  00E0                78     ACC     DATA    0E0H
+  00A9                79     ET0     BIT     0A8H.1
+  008D                80     TF0     BIT     088H.5
+  00AB                81     ET1     BIT     0A8H.3
+  008F                82     TF1     BIT     088H.7
+  00B5                83     IP2     DATA    0B5H
+  009A                84     RB8     BIT     098H.2
+  008C                85     TH0     DATA    08CH
+  008D                86     TH1     DATA    08DH
+  0088                87     IT0     BIT     088H.0
+  00A8                88     EX0     BIT     0A8H.0
+  009B                89     TB8     BIT     098H.3
+  008A                90     IT1     BIT     088H.2
+  00AA                91     EX1     BIT     0A8H.2
+  00D0                92     P       BIT     0D0H.0
+  009F                93     SM0     BIT     098H.7
+  008A                94     TL0     DATA    08AH
+  009E                95     SM1     BIT     098H.6
+  008B                96     TL1     DATA    08BH
+  009D                97     SM2     BIT     098H.5
+  00B9                98     PT0     BIT     0B8H.1
+  00BB                99     PT1     BIT     0B8H.3
+  00D3               100     RS0     BIT     0D0H.3
+  00C2               101     IAP_DATA        DATA    0C2H
+  008C               102     TR0     BIT     088H.4
+  00D4               103     RS1     BIT     0D0H.4
+  008E               104     TR1     BIT     088H.6
+  0090               105     SDA     BIT     090H.0
+  00C1               106     WDT_CONTR       DATA    0C1H
+  00B8               107     PX0     BIT     0B8H.0
+  00BA               108     PX1     BIT     0B8H.2
+  00F2               109     PCA_PWM0        DATA    0F2H
+  00F3               110     PCA_PWM1        DATA    0F3H
+  009D               111     P1ASF   DATA    09DH
+  0083               112     DPH     DATA    083H
+  00BE               113     ADC_RESL        DATA    0BEH
+  0082               114     DPL     DATA    082H
+  00CD               115     SPSTAT  DATA    0CDH
+  00B7               116     IPH     DATA    0B7H
+  0091               117     SCL     BIT     090H.1
+  009B               118     S2BUF   DATA    09BH
+  009C               119     REN     BIT     098H.4
+  009A               120     S2CON   DATA    09AH
+  009C               121     BRT     DATA    09CH
+  00B9               122     SADEN   DATA    0B9H
+  00A9               123     SADDR   DATA    0A9H
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE     3
+
+  00C6               124     IAP_TRIG        DATA    0C6H
+  00A2               125     AUXR1   DATA    0A2H
+  00D5               126     F0      BIT     0D0H.5
+  00D0               127     PSW     DATA    0D0H
+  00D8               128     CCF0    BIT     0D8H.0
+  00CF               129     SPDAT   DATA    0CFH
+  00D9               130     CCF1    BIT     0D8H.1
+  0094               131     P0M0    DATA    094H
+                     132     ?PR?main?DS1307      SEGMENT CODE 
+                     133     ?PR?I2CStart?DS1307  SEGMENT CODE 
+                     134     ?PR?I2CEnd?DS1307    SEGMENT CODE 
+                     135     ?PR?I2CSendAck?DS1307                    SEGMENT CODE 
+                     136     ?BI?I2CSendAck?DS1307                    SEGMENT BIT 
+                     137     ?PR?I2CReceiveAck?DS1307                 SEGMENT CODE 
+                     138     ?PR?I2CSendByte?DS1307                   SEGMENT CODE 
+                     139     ?DT?I2CSendByte?DS1307                   SEGMENT DATA 
+                     140     ?PR?I2CRecvByte?DS1307                   SEGMENT CODE 
+                     141     ?DT?I2CRecvByte?DS1307                   SEGMENT DATA 
+                     142     ?PR?UartInit?DS1307  SEGMENT CODE 
+                     143     ?PR?uartSend?DS1307  SEGMENT CODE 
+                     144     ?DT?uartSend?DS1307  SEGMENT DATA 
+                     145     ?PR?uartSendHex?DS1307                   SEGMENT CODE 
+                     146     ?DT?uartSendHex?DS1307                   SEGMENT DATA 
+                     147     ?PR?uartReceive?DS1307                   SEGMENT CODE 
+                     148     ?DT?DS1307           SEGMENT DATA 
+                     149     ?DT?uartReceive?DS1307                   SEGMENT DATA 
+                     150     ?PR?Delay5us?DS1307  SEGMENT CODE 
+                     151     ?DT?Delay5us?DS1307  SEGMENT DATA 
+                     152     ?CO?DS1307           SEGMENT CODE 
+                     153             EXTRN   CODE (?C_STARTUP)
+                     154             EXTRN   CODE (?C?CLDOPTR)
+                     155             PUBLIC  Delay5us
+                     156             PUBLIC  ?uartReceive?BYTE
+                     157             PUBLIC  uartReceive
+                     158             PUBLIC  ?uartSendHex?BYTE
+                     159             PUBLIC  uartSendHex
+                     160             PUBLIC  ?uartSend?BYTE
+                     161             PUBLIC  uartSend
+                     162             PUBLIC  UartInit
+                     163             PUBLIC  I2CRecvByte
+                     164             PUBLIC  ?I2CSendByte?BYTE
+                     165             PUBLIC  I2CSendByte
+                     166             PUBLIC  I2CReceiveAck
+                     167             PUBLIC  ?I2CSendAck?BIT
+                     168             PUBLIC  I2CSendAck
+                     169             PUBLIC  I2CEnd
+                     170             PUBLIC  I2CStart
+                     171             PUBLIC  main
+                     172     
+----                 173             RSEG  ?DT?uartReceive?DS1307
+0000                 174     ?uartReceive?BYTE:
+0000                 175            len?1050:   DS   1
+0001                 176             ORG  1
+0001                 177              i?1051:   DS   2
+                     178     
+----                 179             RSEG  ?DT?Delay5us?DS1307
+0000                 180     ?Delay5us?BYTE:
+0000                 181              i?1153:   DS   1
+0001                 182             ORG  1
+0001                 183              j?1154:   DS   1
+                     184     
+----                 185             RSEG  ?DT?uartSend?DS1307
+0000                 186     ?uartSend?BYTE:
+0000                 187          string?845:   DS   3
+0003                 188             ORG  3
+0003                 189             len?846:   DS   1
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE     4
+
+0004                 190             ORG  4
+0004                 191             EOL?847:   DS   1
+0005                 192             ORG  5
+0005                 193               i?848:   DS   1
+                     194     
+----                 195             RSEG  ?BI?I2CSendAck?DS1307
+0000                 196     ?I2CSendAck?BIT:
+0000                 197             ACK?340:   DBIT   1
+                     198     
+----                 199             RSEG  ?DT?I2CSendByte?DS1307
+0000                 200     ?I2CSendByte?BYTE:
+0000                 201            Data?541:   DS   1
+0001                 202             ORG  1
+0001                 203               i?542:   DS   1
+                     204     
+----                 205             RSEG  ?DT?I2CRecvByte?DS1307
+0000                 206     ?I2CRecvByte?BYTE:
+0000                 207               i?643:   DS   1
+0001                 208             ORG  1
+0001                 209          buffer?644:   DS   1
+                     210     
+----                 211             RSEG  ?DT?uartSendHex?DS1307
+0000                 212     ?uartSendHex?BYTE:
+0000                 213            Data?949:   DS   1
+                     214     
+----                 215             RSEG  ?DT?DS1307
+0000                 216         string?1052:   DS   10
+                     217     
+----                 218             RSEG  ?CO?DS1307
+0000                 219     ?SC_0:
+0000 48656C6C        220             DB  'H' ,'e' ,'l' ,'l' ,'o' ,'W' ,'o' ,'r' ,'l' ,'d' 
+0004 6F576F72                
+0008 6C64                    
+000A 00              221             DB  000H
+                     222     
+                     223     ; #include <STC12C5A60S2.h>
+                     224     ; #include <DS1307.h>
+                     225     ; #include <intrins.h>
+                     226     ; #define DISPLAY P0
+                     227     ; #define NUMBER P2
+                     228     ; sbit SDA = P1^0;
+                     229     ; sbit SCL = P1^1;
+                     230     ; sbit NUMBER_EN = P1^3;
+                     231     ; sbit HV_EN = P1^2;
+                     232     ; void I2CStart(void);
+                     233     ; void I2CEnd(void);
+                     234     ; void I2CSendAck(bit ACK/*0 = ACK*/);
+                     235     ; void I2CReceiveAck(void);
+                     236     ; void I2CSendByte(unsigned char Data);
+                     237     ; unsigned char I2CRecvByte(void);
+                     238     ; void UartInit(void);
+                     239     ; void uartSend (char *string,char len,char EOL);
+                     240     ; char *uartReceive(char len);
+                     241     ; void Delay5us();
+                     242     ; void uartSendHex (unsigned char Data);
+                     243     ; void main(void){
+                     244     
+----                 245             RSEG  ?PR?main?DS1307
+0000                 246     main:
+                     247             USING   0
+                     248                             ; SOURCE LINE # 21
+                     249     ;       //unsigned char buffer2;
+                     250     ;       UartInit();
+                     251                             ; SOURCE LINE # 23
+0000 120000   F      252             LCALL   UartInit
+0003                 253     ?C0001:
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE     5
+
+                     254     ;       while(1){
+                     255                             ; SOURCE LINE # 24
+                     256     ;               //I2CStart();
+                     257     ;               //I2CSendByte(DS1307_DEVICES_ADRESS);
+                     258     ;               //I2CSendByte(DS1307_DATE);
+                     259     ;               //I2CStart();
+                     260     ;               //I2CSendByte(DS1307_DEVICES_ADRESS+1);
+                     261     ;               //buffer2 = I2CRecvByte();
+                     262     ;               //I2CSendAck(1);
+                     263     ;               //I2CEnd();
+                     264     ;               uartSend("HelloWorld",10,1);
+                     265                             ; SOURCE LINE # 33
+0003 7BFF            266             MOV     R3,#0FFH
+0005 7A00     F      267             MOV     R2,#HIGH (?SC_0)
+0007 7900     F      268             MOV     R1,#LOW (?SC_0)
+0009 8B00     F      269             MOV     ?uartSend?BYTE,R3
+000B 8A00     F      270             MOV     ?uartSend?BYTE+01H,R2
+000D 8900     F      271             MOV     ?uartSend?BYTE+02H,R1
+000F 75000A   F      272             MOV     ?uartSend?BYTE+03H,#0AH
+0012 750001   F      273             MOV     ?uartSend?BYTE+04H,#01H
+0015 120000   F      274             LCALL   uartSend
+                     275     ;       }
+                     276                             ; SOURCE LINE # 34
+0018 80E9            277             SJMP    ?C0001
+001A                 278     ?C0002:
+                     279     ; }
+                     280                             ; SOURCE LINE # 35
+001A                 281     ?C0003:
+001A 22              282             RET     
+                     283     ; END OF main
+                     284     
+                     285     ; /*
+                     286     ; I2C Time
+                     287     ; SDA = data
+                     288     ; delay
+                     289     ; SCL = 1
+                     290     ; delay
+                     291     ; SCL = 0
+                     292     ; delay
+                     293     ; */
+                     294     ; void I2CStart(void){
+                     295     
+----                 296             RSEG  ?PR?I2CStart?DS1307
+0000                 297     I2CStart:
+                     298             USING   0
+                     299                             ; SOURCE LINE # 45
+                     300     ;       SDA = 1;
+                     301                             ; SOURCE LINE # 46
+0000 D290            302             SETB    SDA
+                     303     ;       SCL = 1;
+                     304                             ; SOURCE LINE # 47
+0002 D291            305             SETB    SCL
+                     306     ;       Delay5us();
+                     307                             ; SOURCE LINE # 48
+0004 120000   F      308             LCALL   Delay5us
+                     309     ;       SDA = 0;
+                     310                             ; SOURCE LINE # 49
+0007 C290            311             CLR     SDA
+                     312     ;       Delay5us();
+                     313                             ; SOURCE LINE # 50
+0009 120000   F      314             LCALL   Delay5us
+                     315     ;       SCL = 0;
+                     316                             ; SOURCE LINE # 51
+000C C291            317             CLR     SCL
+                     318     ;       Delay5us();
+                     319                             ; SOURCE LINE # 52
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE     6
+
+000E 120000   F      320             LCALL   Delay5us
+                     321     ; }
+                     322                             ; SOURCE LINE # 53
+0011                 323     ?C0004:
+0011 22              324             RET     
+                     325     ; END OF I2CStart
+                     326     
+                     327     ; void I2CEnd(void){
+                     328     
+----                 329             RSEG  ?PR?I2CEnd?DS1307
+0000                 330     I2CEnd:
+                     331             USING   0
+                     332                             ; SOURCE LINE # 54
+                     333     ;       SDA = 0;
+                     334                             ; SOURCE LINE # 55
+0000 C290            335             CLR     SDA
+                     336     ;       SCL = 1;
+                     337                             ; SOURCE LINE # 56
+0002 D291            338             SETB    SCL
+                     339     ;       Delay5us();
+                     340                             ; SOURCE LINE # 57
+0004 120000   F      341             LCALL   Delay5us
+                     342     ;       SDA = 1;
+                     343                             ; SOURCE LINE # 58
+0007 D290            344             SETB    SDA
+                     345     ;       Delay5us();
+                     346                             ; SOURCE LINE # 59
+0009 120000   F      347             LCALL   Delay5us
+                     348     ; }
+                     349                             ; SOURCE LINE # 60
+000C                 350     ?C0005:
+000C 22              351             RET     
+                     352     ; END OF I2CEnd
+                     353     
+                     354     ; void I2CSendAck(bit ACK/*0 = ACK*/){
+                     355     
+----                 356             RSEG  ?PR?I2CSendAck?DS1307
+0000                 357     I2CSendAck:
+                     358             USING   0
+                     359                             ; SOURCE LINE # 61
+                     360     ;       SDA = ACK;
+                     361                             ; SOURCE LINE # 62
+0000 A200     F      362             MOV     C,ACK?340
+0002 9290            363             MOV     SDA,C
+                     364     ;       SCL = 1;
+                     365                             ; SOURCE LINE # 63
+0004 D291            366             SETB    SCL
+                     367     ;       Delay5us();
+                     368                             ; SOURCE LINE # 64
+0006 120000   F      369             LCALL   Delay5us
+                     370     ;       SCL = 0;
+                     371                             ; SOURCE LINE # 65
+0009 C291            372             CLR     SCL
+                     373     ;       Delay5us();
+                     374                             ; SOURCE LINE # 66
+000B 120000   F      375             LCALL   Delay5us
+                     376     ; }
+                     377                             ; SOURCE LINE # 67
+000E                 378     ?C0006:
+000E 22              379             RET     
+                     380     ; END OF I2CSendAck
+                     381     
+                     382     ; void I2CReceiveAck(void){
+                     383     
+----                 384             RSEG  ?PR?I2CReceiveAck?DS1307
+0000                 385     I2CReceiveAck:
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE     7
+
+                     386             USING   0
+                     387                             ; SOURCE LINE # 68
+                     388     ;       SCL = 1;
+                     389                             ; SOURCE LINE # 69
+0000 D291            390             SETB    SCL
+                     391     ;       Delay5us();
+                     392                             ; SOURCE LINE # 70
+0002 120000   F      393             LCALL   Delay5us
+0005                 394     ?C0007:
+                     395     ;       //SDA = 1;
+                     396     ;       while(SDA != 0);
+                     397                             ; SOURCE LINE # 72
+0005 2090FD          398             JB      SDA,?C0007
+0008                 399     ?C0008:
+                     400     ;       //ACK = SDA;
+                     401     ;       SCL = 0;
+                     402                             ; SOURCE LINE # 74
+0008 C291            403             CLR     SCL
+                     404     ;       Delay5us();
+                     405                             ; SOURCE LINE # 75
+000A 120000   F      406             LCALL   Delay5us
+                     407     ; }
+                     408                             ; SOURCE LINE # 76
+000D                 409     ?C0009:
+000D 22              410             RET     
+                     411     ; END OF I2CReceiveAck
+                     412     
+                     413     ; void I2CSendByte(unsigned char Data){
+                     414     
+----                 415             RSEG  ?PR?I2CSendByte?DS1307
+0000                 416     I2CSendByte:
+                     417             USING   0
+                     418                             ; SOURCE LINE # 77
+                     419     ;       unsigned char i;
+                     420     ;       for(i=1;i<9;i++){
+                     421                             ; SOURCE LINE # 79
+0000 750001   F      422             MOV     i?542,#01H
+0003                 423     ?C0010:
+0003 E500     F      424             MOV     A,i?542
+0005 C3              425             CLR     C
+0006 9409            426             SUBB    A,#09H
+0008 5020            427             JNC     ?C0011
+                     428     ;               SDA = _crol_(Data,i)&0x01;
+                     429                             ; SOURCE LINE # 80
+000A AF00     F      430             MOV     R7,Data?541
+000C AE00     F      431             MOV     R6,i?542
+000E A806            432             MOV     R0,AR6
+0010 EF              433             MOV     A,R7
+0011 08              434             INC     R0
+0012 8001            435             SJMP    ?C0046
+0014                 436     ?C0045:
+0014 23              437             RL      A
+0015                 438     ?C0046:
+0015 D8FD            439             DJNZ    R0,?C0045
+0017 FF              440             MOV     R7,A
+0018 EF              441             MOV     A,R7
+0019 13              442             RRC     A
+001A 9290            443             MOV     SDA,C
+                     444     ;               SCL = 1;
+                     445                             ; SOURCE LINE # 81
+001C D291            446             SETB    SCL
+                     447     ;               Delay5us();
+                     448                             ; SOURCE LINE # 82
+001E 120000   F      449             LCALL   Delay5us
+                     450     ;               SCL = 0;
+                     451                             ; SOURCE LINE # 83
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE     8
+
+0021 C291            452             CLR     SCL
+                     453     ;               Delay5us();
+                     454                             ; SOURCE LINE # 84
+0023 120000   F      455             LCALL   Delay5us
+                     456     ;       }
+                     457                             ; SOURCE LINE # 85
+0026                 458     ?C0012:
+0026 0500     F      459             INC     i?542
+0028 80D9            460             SJMP    ?C0010
+002A                 461     ?C0011:
+                     462     ;       I2CReceiveAck();
+                     463                             ; SOURCE LINE # 86
+002A 120000   F      464             LCALL   I2CReceiveAck
+                     465     ; }
+                     466                             ; SOURCE LINE # 87
+002D                 467     ?C0013:
+002D 22              468             RET     
+                     469     ; END OF I2CSendByte
+                     470     
+                     471     ; unsigned char I2CRecvByte(void){
+                     472     
+----                 473             RSEG  ?PR?I2CRecvByte?DS1307
+0000                 474     I2CRecvByte:
+                     475             USING   0
+                     476                             ; SOURCE LINE # 88
+                     477     ;       unsigned char i;
+                     478     ;       unsigned char buffer = 0;
+                     479                             ; SOURCE LINE # 90
+0000 750000   F      480             MOV     buffer?644,#00H
+                     481     ;       SDA = 1;
+                     482                             ; SOURCE LINE # 91
+0003 D290            483             SETB    SDA
+                     484     ;       for(i=0;i<8;i++){
+                     485                             ; SOURCE LINE # 92
+0005 750000   F      486             MOV     i?643,#00H
+0008                 487     ?C0014:
+0008 E500     F      488             MOV     A,i?643
+000A C3              489             CLR     C
+000B 9408            490             SUBB    A,#08H
+000D 5024            491             JNC     ?C0015
+                     492     ;               buffer = _crol_(buffer,1);
+                     493                             ; SOURCE LINE # 93
+000F AF00     F      494             MOV     R7,buffer?644
+0011 7801            495             MOV     R0,#01H
+0013 EF              496             MOV     A,R7
+0014 08              497             INC     R0
+0015 8001            498             SJMP    ?C0048
+0017                 499     ?C0047:
+0017 23              500             RL      A
+0018                 501     ?C0048:
+0018 D8FD            502             DJNZ    R0,?C0047
+001A FF              503             MOV     R7,A
+001B 8F00     F      504             MOV     buffer?644,R7
+                     505     ;               SCL = 1;
+                     506                             ; SOURCE LINE # 94
+001D D291            507             SETB    SCL
+                     508     ;               Delay5us();
+                     509                             ; SOURCE LINE # 95
+001F 120000   F      510             LCALL   Delay5us
+                     511     ;               buffer = SDA | buffer;
+                     512                             ; SOURCE LINE # 96
+0022 A290            513             MOV     C,SDA
+0024 E4              514             CLR     A
+0025 33              515             RLC     A
+0026 FF              516             MOV     R7,A
+0027 EF              517             MOV     A,R7
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE     9
+
+0028 4200     F      518             ORL     buffer?644,A
+                     519     ;               SCL = 0;
+                     520                             ; SOURCE LINE # 97
+002A C291            521             CLR     SCL
+                     522     ;               Delay5us();
+                     523                             ; SOURCE LINE # 98
+002C 120000   F      524             LCALL   Delay5us
+                     525     ;       }
+                     526                             ; SOURCE LINE # 99
+002F                 527     ?C0016:
+002F 0500     F      528             INC     i?643
+0031 80D5            529             SJMP    ?C0014
+0033                 530     ?C0015:
+                     531     ;       return buffer;
+                     532                             ; SOURCE LINE # 100
+0033 AF00     F      533             MOV     R7,buffer?644
+                     534     ; }
+                     535                             ; SOURCE LINE # 101
+0035                 536     ?C0017:
+0035 22              537             RET     
+                     538     ; END OF I2CRecvByte
+                     539     
+                     540     ; void UartInit(void)           //9600bps@12.000MHz
+                     541     
+----                 542             RSEG  ?PR?UartInit?DS1307
+0000                 543     UartInit:
+                     544                             ; SOURCE LINE # 102
+                     545     ; {
+                     546                             ; SOURCE LINE # 103
+                     547     ;       PCON |= 0x80;           //Enable SMOD bit
+                     548                             ; SOURCE LINE # 104
+0000 438780          549             ORL     PCON,#080H
+                     550     ;       SCON = 0x50;            //8bit and variable baudrate
+                     551                             ; SOURCE LINE # 105
+0003 759850          552             MOV     SCON,#050H
+                     553     ;       AUXR |= 0x04;           //BRT's clock is Fosc (1T)
+                     554                             ; SOURCE LINE # 106
+0006 438E04          555             ORL     AUXR,#04H
+                     556     ;       BRT = 0xB2;             //Set BRT's reload value
+                     557                             ; SOURCE LINE # 107
+0009 759CB2          558             MOV     BRT,#0B2H
+                     559     ;       AUXR |= 0x01;           //Use BRT as baudrate generator
+                     560                             ; SOURCE LINE # 108
+000C 438E01          561             ORL     AUXR,#01H
+                     562     ;       AUXR |= 0x10;           //BRT running
+                     563                             ; SOURCE LINE # 109
+000F 438E10          564             ORL     AUXR,#010H
+                     565     ; }
+                     566                             ; SOURCE LINE # 110
+0012                 567     ?C0018:
+0012 22              568             RET     
+                     569     ; END OF UartInit
+                     570     
+                     571     ; void uartSend (char *string,char len,char EOL){
+                     572     
+----                 573             RSEG  ?PR?uartSend?DS1307
+0000                 574     uartSend:
+                     575             USING   0
+                     576                             ; SOURCE LINE # 111
+                     577     ;       unsigned char i;
+                     578     ;       for(i=0;i<len;i++){
+                     579                             ; SOURCE LINE # 113
+0000 750000   F      580             MOV     i?848,#00H
+0003                 581     ?C0019:
+0003 AF00     F      582             MOV     R7,len?846
+0005 EF              583             MOV     A,R7
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE    10
+
+0006 33              584             RLC     A
+0007 95E0            585             SUBB    A,ACC
+0009 FE              586             MOV     R6,A
+000A AD00     F      587             MOV     R5,i?848
+000C 7C00            588             MOV     R4,#00H
+000E C3              589             CLR     C
+000F ED              590             MOV     A,R5
+0010 9F              591             SUBB    A,R7
+0011 EE              592             MOV     A,R6
+0012 6480            593             XRL     A,#080H
+0014 F8              594             MOV     R0,A
+0015 EC              595             MOV     A,R4
+0016 6480            596             XRL     A,#080H
+0018 98              597             SUBB    A,R0
+0019 501C            598             JNC     ?C0020
+                     599     ;               SBUF = string[i];
+                     600                             ; SOURCE LINE # 114
+001B AB00     F      601             MOV     R3,string?845
+001D AA00     F      602             MOV     R2,string?845+01H
+001F A900     F      603             MOV     R1,string?845+02H
+0021 AF00     F      604             MOV     R7,i?848
+0023 8F82            605             MOV     DPL,R7
+0025 758300          606             MOV     DPH,#00H
+0028 120000   F      607             LCALL   ?C?CLDOPTR
+002B FF              608             MOV     R7,A
+002C 8F99            609             MOV     SBUF,R7
+002E                 610     ?C0022:
+                     611     ;               while(!TI);
+                     612                             ; SOURCE LINE # 115
+002E 3099FD          613             JNB     TI,?C0022
+0031                 614     ?C0023:
+                     615     ;               TI=0;
+                     616                             ; SOURCE LINE # 116
+0031 C299            617             CLR     TI
+                     618     ;       }
+                     619                             ; SOURCE LINE # 117
+0033                 620     ?C0021:
+0033 0500     F      621             INC     i?848
+0035 80CC            622             SJMP    ?C0019
+0037                 623     ?C0020:
+                     624     ;       if(EOL == 1){
+                     625                             ; SOURCE LINE # 118
+0037 E500     F      626             MOV     A,EOL?847
+0039 B40110          627             CJNE    A,#01H,?C0029
+                     628     ;               SBUF = 0x0D;
+                     629                             ; SOURCE LINE # 119
+003C 75990D          630             MOV     SBUF,#0DH
+003F                 631     ?C0025:
+                     632     ;               while(!TI);
+                     633                             ; SOURCE LINE # 120
+003F 3099FD          634             JNB     TI,?C0025
+0042                 635     ?C0026:
+                     636     ;               TI=0;
+                     637                             ; SOURCE LINE # 121
+0042 C299            638             CLR     TI
+                     639     ;               SBUF = 0x0A;
+                     640                             ; SOURCE LINE # 122
+0044 75990A          641             MOV     SBUF,#0AH
+0047                 642     ?C0027:
+                     643     ;               while(!TI);
+                     644                             ; SOURCE LINE # 123
+0047 3099FD          645             JNB     TI,?C0027
+004A                 646     ?C0028:
+                     647     ;               TI=0;
+                     648                             ; SOURCE LINE # 124
+004A C299            649             CLR     TI
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE    11
+
+                     650     ;       }
+                     651                             ; SOURCE LINE # 125
+004C                 652     ?C0024:
+                     653     ; }
+                     654                             ; SOURCE LINE # 126
+004C                 655     ?C0029:
+004C 22              656             RET     
+                     657     ; END OF uartSend
+                     658     
+                     659     ; void uartSendHex (unsigned char Data){
+                     660     
+----                 661             RSEG  ?PR?uartSendHex?DS1307
+0000                 662     uartSendHex:
+                     663                             ; SOURCE LINE # 127
+                     664     ;       SBUF = Data;
+                     665                             ; SOURCE LINE # 128
+0000 850099   F      666             MOV     SBUF,Data?949
+0003                 667     ?C0030:
+                     668     ;       while(!TI);
+                     669                             ; SOURCE LINE # 129
+0003 3099FD          670             JNB     TI,?C0030
+0006                 671     ?C0031:
+                     672     ;       TI=0;
+                     673                             ; SOURCE LINE # 130
+0006 C299            674             CLR     TI
+                     675     ; }
+                     676                             ; SOURCE LINE # 131
+0008                 677     ?C0032:
+0008 22              678             RET     
+                     679     ; END OF uartSendHex
+                     680     
+                     681     ; char *uartReceive(char len){
+                     682     
+----                 683             RSEG  ?PR?uartReceive?DS1307
+0000                 684     uartReceive:
+                     685             USING   0
+                     686                             ; SOURCE LINE # 132
+                     687     ;       int i;
+                     688     ;       static unsigned char string[10];
+                     689     ;       for(i=0;i<len;i++){
+                     690                             ; SOURCE LINE # 135
+0000 750000   F      691             MOV     i?1051,#00H
+0003 750000   F      692             MOV     i?1051+01H,#00H
+0006                 693     ?C0033:
+0006 AF00     F      694             MOV     R7,len?1050
+0008 EF              695             MOV     A,R7
+0009 33              696             RLC     A
+000A 95E0            697             SUBB    A,ACC
+000C FE              698             MOV     R6,A
+000D C3              699             CLR     C
+000E E500     F      700             MOV     A,i?1051+01H
+0010 9F              701             SUBB    A,R7
+0011 EE              702             MOV     A,R6
+0012 6480            703             XRL     A,#080H
+0014 F8              704             MOV     R0,A
+0015 E500     F      705             MOV     A,i?1051
+0017 6480            706             XRL     A,#080H
+0019 98              707             SUBB    A,R0
+001A 5017            708             JNC     ?C0034
+001C                 709     ?C0036:
+                     710     ;               while(!RI);
+                     711                             ; SOURCE LINE # 136
+001C 3098FD          712             JNB     RI,?C0036
+001F                 713     ?C0037:
+                     714     ;               string[i]=SBUF;
+                     715                             ; SOURCE LINE # 137
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE    12
+
+001F AF00     F      716             MOV     R7,i?1051+01H
+0021 7400     F      717             MOV     A,#LOW (string?1052)
+0023 2F              718             ADD     A,R7
+0024 F8              719             MOV     R0,A
+0025 A699            720             MOV     @R0,SBUF
+                     721     ;               RI = 0;
+                     722                             ; SOURCE LINE # 138
+0027 C298            723             CLR     RI
+                     724     ;       }
+                     725                             ; SOURCE LINE # 139
+0029                 726     ?C0035:
+0029 0500     F      727             INC     i?1051+01H
+002B E500     F      728             MOV     A,i?1051+01H
+002D 7002            729             JNZ     ?C0049
+002F 0500     F      730             INC     i?1051
+0031                 731     ?C0049:
+0031 80D3            732             SJMP    ?C0033
+0033                 733     ?C0034:
+                     734     ;       return string;
+                     735                             ; SOURCE LINE # 140
+0033 7B00            736             MOV     R3,#00H
+0035 7A00     F      737             MOV     R2,#HIGH (string?1052)
+0037 7900     F      738             MOV     R1,#LOW (string?1052)
+                     739     ; }
+                     740                             ; SOURCE LINE # 141
+0039                 741     ?C0038:
+0039 22              742             RET     
+                     743     ; END OF uartReceive
+                     744     
+                     745     ; void Delay5us()               //@12.000MHz
+                     746     
+----                 747             RSEG  ?PR?Delay5us?DS1307
+0000                 748     Delay5us:
+                     749             USING   0
+                     750                             ; SOURCE LINE # 142
+                     751     ; {
+                     752                             ; SOURCE LINE # 143
+                     753     ;       unsigned char i, j;
+                     754     ; 
+                     755     ;       _nop_();
+                     756                             ; SOURCE LINE # 146
+0000 00              757             NOP     
+                     758     ;       _nop_();
+                     759                             ; SOURCE LINE # 147
+0001 00              760             NOP     
+                     761     ;       i = 1;
+                     762                             ; SOURCE LINE # 148
+0002 750001   F      763             MOV     i?1153,#01H
+                     764     ;       j = 145;
+                     765                             ; SOURCE LINE # 149
+0005 750091   F      766             MOV     j?1154,#091H
+0008                 767     ?C0041:
+                     768     ;       do
+                     769     ;       {
+                     770                             ; SOURCE LINE # 151
+0008                 771     ?C0042:
+                     772     ;               while (--j);
+                     773                             ; SOURCE LINE # 152
+0008 1500     F      774             DEC     j?1154
+000A AF00     F      775             MOV     R7,j?1154
+000C EF              776             MOV     A,R7
+000D 70F9            777             JNZ     ?C0042
+000F                 778     ?C0043:
+                     779     ;       } while (--i);
+                     780                             ; SOURCE LINE # 153
+000F                 781     ?C0039:
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE    13
+
+000F 1500     F      782             DEC     i?1153
+0011 AF00     F      783             MOV     R7,i?1153
+0013 EF              784             MOV     A,R7
+0014 70F2            785             JNZ     ?C0042
+0016                 786     ?C0040:
+                     787     ; }
+                     788                             ; SOURCE LINE # 154
+0016                 789     ?C0044:
+0016 22              790             RET     
+                     791     ; END OF Delay5us
+                     792     
+                     793             END
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE    14
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                   T Y P E  V A L U E   ATTRIBUTES
+
+?BI?I2CSENDACK?DS1307. .  B SEG    0001H       REL=UNIT
+?C0001 . . . . . . . . .  C ADDR   0003H   R   SEG=?PR?MAIN?DS1307
+?C0002 . . . . . . . . .  C ADDR   001AH   R   SEG=?PR?MAIN?DS1307
+?C0003 . . . . . . . . .  C ADDR   001AH   R   SEG=?PR?MAIN?DS1307
+?C0004 . . . . . . . . .  C ADDR   0011H   R   SEG=?PR?I2CSTART?DS1307
+?C0005 . . . . . . . . .  C ADDR   000CH   R   SEG=?PR?I2CEND?DS1307
+?C0006 . . . . . . . . .  C ADDR   000EH   R   SEG=?PR?I2CSENDACK?DS1307
+?C0007 . . . . . . . . .  C ADDR   0005H   R   SEG=?PR?I2CRECEIVEACK?DS1307
+?C0008 . . . . . . . . .  C ADDR   0008H   R   SEG=?PR?I2CRECEIVEACK?DS1307
+?C0009 . . . . . . . . .  C ADDR   000DH   R   SEG=?PR?I2CRECEIVEACK?DS1307
+?C0010 . . . . . . . . .  C ADDR   0003H   R   SEG=?PR?I2CSENDBYTE?DS1307
+?C0011 . . . . . . . . .  C ADDR   002AH   R   SEG=?PR?I2CSENDBYTE?DS1307
+?C0012 . . . . . . . . .  C ADDR   0026H   R   SEG=?PR?I2CSENDBYTE?DS1307
+?C0013 . . . . . . . . .  C ADDR   002DH   R   SEG=?PR?I2CSENDBYTE?DS1307
+?C0014 . . . . . . . . .  C ADDR   0008H   R   SEG=?PR?I2CRECVBYTE?DS1307
+?C0015 . . . . . . . . .  C ADDR   0033H   R   SEG=?PR?I2CRECVBYTE?DS1307
+?C0016 . . . . . . . . .  C ADDR   002FH   R   SEG=?PR?I2CRECVBYTE?DS1307
+?C0017 . . . . . . . . .  C ADDR   0035H   R   SEG=?PR?I2CRECVBYTE?DS1307
+?C0018 . . . . . . . . .  C ADDR   0012H   R   SEG=?PR?UARTINIT?DS1307
+?C0019 . . . . . . . . .  C ADDR   0003H   R   SEG=?PR?UARTSEND?DS1307
+?C0020 . . . . . . . . .  C ADDR   0037H   R   SEG=?PR?UARTSEND?DS1307
+?C0021 . . . . . . . . .  C ADDR   0033H   R   SEG=?PR?UARTSEND?DS1307
+?C0022 . . . . . . . . .  C ADDR   002EH   R   SEG=?PR?UARTSEND?DS1307
+?C0023 . . . . . . . . .  C ADDR   0031H   R   SEG=?PR?UARTSEND?DS1307
+?C0024 . . . . . . . . .  C ADDR   004CH   R   SEG=?PR?UARTSEND?DS1307
+?C0025 . . . . . . . . .  C ADDR   003FH   R   SEG=?PR?UARTSEND?DS1307
+?C0026 . . . . . . . . .  C ADDR   0042H   R   SEG=?PR?UARTSEND?DS1307
+?C0027 . . . . . . . . .  C ADDR   0047H   R   SEG=?PR?UARTSEND?DS1307
+?C0028 . . . . . . . . .  C ADDR   004AH   R   SEG=?PR?UARTSEND?DS1307
+?C0029 . . . . . . . . .  C ADDR   004CH   R   SEG=?PR?UARTSEND?DS1307
+?C0030 . . . . . . . . .  C ADDR   0003H   R   SEG=?PR?UARTSENDHEX?DS1307
+?C0031 . . . . . . . . .  C ADDR   0006H   R   SEG=?PR?UARTSENDHEX?DS1307
+?C0032 . . . . . . . . .  C ADDR   0008H   R   SEG=?PR?UARTSENDHEX?DS1307
+?C0033 . . . . . . . . .  C ADDR   0006H   R   SEG=?PR?UARTRECEIVE?DS1307
+?C0034 . . . . . . . . .  C ADDR   0033H   R   SEG=?PR?UARTRECEIVE?DS1307
+?C0035 . . . . . . . . .  C ADDR   0029H   R   SEG=?PR?UARTRECEIVE?DS1307
+?C0036 . . . . . . . . .  C ADDR   001CH   R   SEG=?PR?UARTRECEIVE?DS1307
+?C0037 . . . . . . . . .  C ADDR   001FH   R   SEG=?PR?UARTRECEIVE?DS1307
+?C0038 . . . . . . . . .  C ADDR   0039H   R   SEG=?PR?UARTRECEIVE?DS1307
+?C0039 . . . . . . . . .  C ADDR   000FH   R   SEG=?PR?DELAY5US?DS1307
+?C0040 . . . . . . . . .  C ADDR   0016H   R   SEG=?PR?DELAY5US?DS1307
+?C0041 . . . . . . . . .  C ADDR   0008H   R   SEG=?PR?DELAY5US?DS1307
+?C0042 . . . . . . . . .  C ADDR   0008H   R   SEG=?PR?DELAY5US?DS1307
+?C0043 . . . . . . . . .  C ADDR   000FH   R   SEG=?PR?DELAY5US?DS1307
+?C0044 . . . . . . . . .  C ADDR   0016H   R   SEG=?PR?DELAY5US?DS1307
+?C0045 . . . . . . . . .  C ADDR   0014H   R   SEG=?PR?I2CSENDBYTE?DS1307
+?C0046 . . . . . . . . .  C ADDR   0015H   R   SEG=?PR?I2CSENDBYTE?DS1307
+?C0047 . . . . . . . . .  C ADDR   0017H   R   SEG=?PR?I2CRECVBYTE?DS1307
+?C0048 . . . . . . . . .  C ADDR   0018H   R   SEG=?PR?I2CRECVBYTE?DS1307
+?C0049 . . . . . . . . .  C ADDR   0031H   R   SEG=?PR?UARTRECEIVE?DS1307
+?C?CLDOPTR . . . . . . .  C ADDR   -----       EXT
+?CO?DS1307 . . . . . . .  C SEG    000BH       REL=UNIT
+?C_STARTUP . . . . . . .  C ADDR   -----       EXT
+?DELAY5US?BYTE . . . . .  D ADDR   0000H   R   SEG=?DT?DELAY5US?DS1307
+?DT?DELAY5US?DS1307. . .  D SEG    0002H       REL=UNIT
+?DT?DS1307 . . . . . . .  D SEG    000AH       REL=UNIT
+?DT?I2CRECVBYTE?DS1307 .  D SEG    0002H       REL=UNIT
+?DT?I2CSENDBYTE?DS1307 .  D SEG    0002H       REL=UNIT
+?DT?UARTRECEIVE?DS1307 .  D SEG    0003H       REL=UNIT
+?DT?UARTSEND?DS1307. . .  D SEG    0006H       REL=UNIT
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE    15
+
+?DT?UARTSENDHEX?DS1307 .  D SEG    0001H       REL=UNIT
+?I2CRECVBYTE?BYTE. . . .  D ADDR   0000H   R   SEG=?DT?I2CRECVBYTE?DS1307
+?I2CSENDACK?BIT. . . . .  B ADDR   0000H.0 R   SEG=?BI?I2CSENDACK?DS1307
+?I2CSENDBYTE?BYTE. . . .  D ADDR   0000H   R   SEG=?DT?I2CSENDBYTE?DS1307
+?PR?DELAY5US?DS1307. . .  C SEG    0017H       REL=UNIT
+?PR?I2CEND?DS1307. . . .  C SEG    000DH       REL=UNIT
+?PR?I2CRECEIVEACK?DS1307  C SEG    000EH       REL=UNIT
+?PR?I2CRECVBYTE?DS1307 .  C SEG    0036H       REL=UNIT
+?PR?I2CSENDACK?DS1307. .  C SEG    000FH       REL=UNIT
+?PR?I2CSENDBYTE?DS1307 .  C SEG    002EH       REL=UNIT
+?PR?I2CSTART?DS1307. . .  C SEG    0012H       REL=UNIT
+?PR?MAIN?DS1307. . . . .  C SEG    001BH       REL=UNIT
+?PR?UARTINIT?DS1307. . .  C SEG    0013H       REL=UNIT
+?PR?UARTRECEIVE?DS1307 .  C SEG    003AH       REL=UNIT
+?PR?UARTSEND?DS1307. . .  C SEG    004DH       REL=UNIT
+?PR?UARTSENDHEX?DS1307 .  C SEG    0009H       REL=UNIT
+?SC_0. . . . . . . . . .  C ADDR   0000H   R   SEG=?CO?DS1307
+?UARTRECEIVE?BYTE. . . .  D ADDR   0000H   R   SEG=?DT?UARTRECEIVE?DS1307
+?UARTSEND?BYTE . . . . .  D ADDR   0000H   R   SEG=?DT?UARTSEND?DS1307
+?UARTSENDHEX?BYTE. . . .  D ADDR   0000H   R   SEG=?DT?UARTSENDHEX?DS1307
+AC . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . . . . .  D ADDR   00E0H   A   
+ACK?340. . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?I2CSENDACK?DS1307
+ADC_CONTR. . . . . . . .  D ADDR   00BCH   A   
+ADC_RES. . . . . . . . .  D ADDR   00BDH   A   
+ADC_RESL . . . . . . . .  D ADDR   00BEH   A   
+AR6. . . . . . . . . . .  D ADDR   0006H   A   
+AUXR . . . . . . . . . .  D ADDR   008EH   A   
+AUXR1. . . . . . . . . .  D ADDR   00A2H   A   
+B. . . . . . . . . . . .  D ADDR   00F0H   A   
+BRT. . . . . . . . . . .  D ADDR   009CH   A   
+BUFFER?644 . . . . . . .  D ADDR   0001H   R   SEG=?DT?I2CRECVBYTE?DS1307
+BUS_SPEED. . . . . . . .  D ADDR   00A1H   A   
+CCAP0H . . . . . . . . .  D ADDR   00FAH   A   
+CCAP0L . . . . . . . . .  D ADDR   00EAH   A   
+CCAP1H . . . . . . . . .  D ADDR   00FBH   A   
+CCAP1L . . . . . . . . .  D ADDR   00EBH   A   
+CCAPM0 . . . . . . . . .  D ADDR   00DAH   A   
+CCAPM1 . . . . . . . . .  D ADDR   00DBH   A   
+CCF0 . . . . . . . . . .  B ADDR   00D8H.0 A   
+CCF1 . . . . . . . . . .  B ADDR   00D8H.1 A   
+CCON . . . . . . . . . .  D ADDR   00D8H   A   
+CF . . . . . . . . . . .  B ADDR   00D8H.7 A   
+CH . . . . . . . . . . .  D ADDR   00F9H   A   
+CL . . . . . . . . . . .  D ADDR   00E9H   A   
+CLK_DIV. . . . . . . . .  D ADDR   0097H   A   
+CMOD . . . . . . . . . .  D ADDR   00D9H   A   
+CR . . . . . . . . . . .  B ADDR   00D8H.6 A   
+CY . . . . . . . . . . .  B ADDR   00D0H.7 A   
+DATA?541 . . . . . . . .  D ADDR   0000H   R   SEG=?DT?I2CSENDBYTE?DS1307
+DATA?949 . . . . . . . .  D ADDR   0000H   R   SEG=?DT?UARTSENDHEX?DS1307
+DELAY5US . . . . . . . .  C ADDR   0000H   R   SEG=?PR?DELAY5US?DS1307
+DPH. . . . . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . . . . .  D ADDR   0082H   A   
+DS1307 . . . . . . . . .  N NUMB   -----       
+EA . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EADC . . . . . . . . . .  B ADDR   00A8H.5 A   
+ELVD . . . . . . . . . .  B ADDR   00A8H.6 A   
+EOL?847. . . . . . . . .  D ADDR   0004H   R   SEG=?DT?UARTSEND?DS1307
+ES . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . . . . .  B ADDR   00A8H.3 A   
+EX0. . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . . . . .  B ADDR   00A8H.2 A   
+F0 . . . . . . . . . . .  B ADDR   00D0H.5 A   
+HV_EN. . . . . . . . . .  B ADDR   0090H.2 A   
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE    16
+
+I2CEND . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?I2CEND?DS1307
+I2CRECEIVEACK. . . . . .  C ADDR   0000H   R   SEG=?PR?I2CRECEIVEACK?DS1307
+I2CRECVBYTE. . . . . . .  C ADDR   0000H   R   SEG=?PR?I2CRECVBYTE?DS1307
+I2CSENDACK . . . . . . .  C ADDR   0000H   R   SEG=?PR?I2CSENDACK?DS1307
+I2CSENDBYTE. . . . . . .  C ADDR   0000H   R   SEG=?PR?I2CSENDBYTE?DS1307
+I2CSTART . . . . . . . .  C ADDR   0000H   R   SEG=?PR?I2CSTART?DS1307
+I?1051 . . . . . . . . .  D ADDR   0001H   R   SEG=?DT?UARTRECEIVE?DS1307
+I?1153 . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?DELAY5US?DS1307
+I?542. . . . . . . . . .  D ADDR   0001H   R   SEG=?DT?I2CSENDBYTE?DS1307
+I?643. . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?I2CRECVBYTE?DS1307
+I?848. . . . . . . . . .  D ADDR   0005H   R   SEG=?DT?UARTSEND?DS1307
+IAP_ADDRH. . . . . . . .  D ADDR   00C3H   A   
+IAP_ADDRL. . . . . . . .  D ADDR   00C4H   A   
+IAP_CMD. . . . . . . . .  D ADDR   00C5H   A   
+IAP_CONTR. . . . . . . .  D ADDR   00C7H   A   
+IAP_DATA . . . . . . . .  D ADDR   00C2H   A   
+IAP_TRIG . . . . . . . .  D ADDR   00C6H   A   
+IE . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0. . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . . . . .  B ADDR   0088H.3 A   
+IE2. . . . . . . . . . .  D ADDR   00AFH   A   
+IP . . . . . . . . . . .  D ADDR   00B8H   A   
+IP2. . . . . . . . . . .  D ADDR   00B5H   A   
+IPH. . . . . . . . . . .  D ADDR   00B7H   A   
+IPH2 . . . . . . . . . .  D ADDR   00B6H   A   
+IT0. . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . . . . .  B ADDR   0088H.2 A   
+J?1154 . . . . . . . . .  D ADDR   0001H   R   SEG=?DT?DELAY5US?DS1307
+LEN?1050 . . . . . . . .  D ADDR   0000H   R   SEG=?DT?UARTRECEIVE?DS1307
+LEN?846. . . . . . . . .  D ADDR   0003H   R   SEG=?DT?UARTSEND?DS1307
+MAIN . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?MAIN?DS1307
+NUMBER_EN. . . . . . . .  B ADDR   0090H.3 A   
+OV . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . . . . .  D ADDR   0080H   A   
+P0M0 . . . . . . . . . .  D ADDR   0094H   A   
+P0M1 . . . . . . . . . .  D ADDR   0093H   A   
+P1 . . . . . . . . . . .  D ADDR   0090H   A   
+P1ASF. . . . . . . . . .  D ADDR   009DH   A   
+P1M0 . . . . . . . . . .  D ADDR   0092H   A   
+P1M1 . . . . . . . . . .  D ADDR   0091H   A   
+P2 . . . . . . . . . . .  D ADDR   00A0H   A   
+P2M0 . . . . . . . . . .  D ADDR   0096H   A   
+P2M1 . . . . . . . . . .  D ADDR   0095H   A   
+P3 . . . . . . . . . . .  D ADDR   00B0H   A   
+P3M0 . . . . . . . . . .  D ADDR   00B2H   A   
+P3M1 . . . . . . . . . .  D ADDR   00B1H   A   
+P4 . . . . . . . . . . .  D ADDR   00C0H   A   
+P4M0 . . . . . . . . . .  D ADDR   00B4H   A   
+P4M1 . . . . . . . . . .  D ADDR   00B3H   A   
+P4SW . . . . . . . . . .  D ADDR   00BBH   A   
+P5 . . . . . . . . . . .  D ADDR   00C8H   A   
+P5M0 . . . . . . . . . .  D ADDR   00CAH   A   
+P5M1 . . . . . . . . . .  D ADDR   00C9H   A   
+PADC . . . . . . . . . .  B ADDR   00B8H.5 A   
+PCA_PWM0 . . . . . . . .  D ADDR   00F2H   A   
+PCA_PWM1 . . . . . . . .  D ADDR   00F3H   A   
+PCON . . . . . . . . . .  D ADDR   0087H   A   
+PLVD . . . . . . . . . .  B ADDR   00B8H.6 A   
+PPCA . . . . . . . . . .  B ADDR   00B8H.7 A   
+PS . . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSW. . . . . . . . . . .  D ADDR   00D0H   A   
+PT0. . . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1. . . . . . . . . . .  B ADDR   00B8H.3 A   
+PX0. . . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1. . . . . . . . . . .  B ADDR   00B8H.2 A   
+A51 MACRO ASSEMBLER  DS1307                                                               07/23/2014 20:24:10 PAGE    17
+
+RB8. . . . . . . . . . .  B ADDR   0098H.2 A   
+REN. . . . . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0. . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . . . . .  B ADDR   00D0H.4 A   
+S2BUF. . . . . . . . . .  D ADDR   009BH   A   
+S2CON. . . . . . . . . .  D ADDR   009AH   A   
+SADDR. . . . . . . . . .  D ADDR   00A9H   A   
+SADEN. . . . . . . . . .  D ADDR   00B9H   A   
+SBUF . . . . . . . . . .  D ADDR   0099H   A   
+SCL. . . . . . . . . . .  B ADDR   0090H.1 A   
+SCON . . . . . . . . . .  D ADDR   0098H   A   
+SDA. . . . . . . . . . .  B ADDR   0090H.0 A   
+SM0. . . . . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . . . . .  B ADDR   0098H.6 A   
+SM2. . . . . . . . . . .  B ADDR   0098H.5 A   
+SP . . . . . . . . . . .  D ADDR   0081H   A   
+SPCTL. . . . . . . . . .  D ADDR   00CEH   A   
+SPDAT. . . . . . . . . .  D ADDR   00CFH   A   
+SPSTAT . . . . . . . . .  D ADDR   00CDH   A   
+STRING?1052. . . . . . .  D ADDR   0000H   R   SEG=?DT?DS1307
+STRING?845 . . . . . . .  D ADDR   0000H   R   SEG=?DT?UARTSEND?DS1307
+TB8. . . . . . . . . . .  B ADDR   0098H.3 A   
+TCON . . . . . . . . . .  D ADDR   0088H   A   
+TF0. . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . . . . .  B ADDR   0088H.7 A   
+TH0. . . . . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . . . . .  B ADDR   0088H.6 A   
+UARTINIT . . . . . . . .  C ADDR   0000H   R   SEG=?PR?UARTINIT?DS1307
+UARTRECEIVE. . . . . . .  C ADDR   0000H   R   SEG=?PR?UARTRECEIVE?DS1307
+UARTSEND . . . . . . . .  C ADDR   0000H   R   SEG=?PR?UARTSEND?DS1307
+UARTSENDHEX. . . . . . .  C ADDR   0000H   R   SEG=?PR?UARTSENDHEX?DS1307
+WAKE_CLKO. . . . . . . .  D ADDR   008FH   A   
+WDT_CONTR. . . . . . . .  D ADDR   00C1H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
