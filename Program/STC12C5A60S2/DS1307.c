@@ -1,8 +1,10 @@
 #include <STC12C5A60S2.h>
 #include <DS1307.h>
 #include <intrins.h>
+#include <ctype.h>
 #define DISPLAY P0
 #define NUMBER P2
+#define ASCIIZERO 0x30
 sbit SDA = P1^0;
 sbit SCL = P1^1;
 sbit NUMBER_EN = P1^3;
@@ -19,21 +21,23 @@ char *uartReceive(char len);
 void Delay5us();
 void uartSendHex (unsigned char Data);
 void Delay500ms();
+DS1307Time time;
+void gotDS1307time (void);
+void resetDS1307time(void);
 void main(void){
-	unsigned char buffer2;
 	UartInit();
 	while(1){
-		I2CStart();
-		I2CSendByte(DS1307_DEVICES_ADRESS);
-		I2CSendByte(DS1307_SECONDS);
-		I2CStart();
-		I2CSendByte(DS1307_DEVICES_ADRESS+1);
-		buffer2 = I2CRecvByte();
-		I2CSendAck(1);
-		I2CEnd();
-		SBUF = buffer2;
-		while(!TI);
-		TI=0;
+		gotDS1307time();
+		uartSend("Hour:",5,0);
+		uartSendHex(ASCIIZERO+(time.hours>>4));
+		uartSendHex(ASCIIZERO+(time.hours&0x0f));
+		uartSend("Minutes:",8,0);
+		uartSendHex(ASCIIZERO+(time.minutes>>4));
+		uartSendHex(ASCIIZERO+(time.minutes&0x0f));
+		uartSend("Seconds:",8,0);
+		uartSendHex(ASCIIZERO+(time.seconds>>4));
+		uartSendHex(ASCIIZERO+(time.seconds&0x0f));
+		uartSend("",0,1);
 		Delay500ms();
 	}
 }
@@ -170,4 +174,35 @@ void Delay500ms()		//@12.000MHz
 			while (--k);
 		} while (--j);
 	} while (--i);
+}
+void gotDS1307time (void){
+	I2CStart();
+	I2CSendByte(DS1307_DEVICES_ADRESS);
+	I2CSendByte(DS1307_SECONDS);
+	I2CStart();
+	I2CSendByte(DS1307_DEVICES_ADRESS+1);
+	time.seconds = I2CRecvByte();
+	I2CSendAck(0);
+	time.minutes = I2CRecvByte();
+	I2CSendAck(0);
+	time.hours = I2CRecvByte();
+	I2CSendAck(0);
+	time.day = I2CRecvByte();
+	I2CSendAck(0);
+	time.date = I2CRecvByte();
+	I2CSendAck(0);
+	time.month = I2CRecvByte();
+	I2CSendAck(0);
+	time.year = I2CRecvByte();
+	I2CSendAck(1);
+	I2CEnd();
+}
+void resetDS1307time(void){
+	I2CStart();
+	I2CSendByte(DS1307_DEVICES_ADRESS);
+	I2CSendByte(DS1307_SECONDS);
+	I2CSendByte(0x55);
+	I2CSendByte(0x59);
+	I2CSendByte(0x00);
+	I2CEnd();
 }

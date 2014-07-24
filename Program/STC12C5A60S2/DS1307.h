@@ -14,4 +14,13 @@
 #define DS1307_RAMEND 0x3F
 /*First Write TO Change Register Pointer
 Then Read That Data*/
+typedef struct {
+	unsigned char seconds;
+	unsigned char minutes;
+	unsigned char hours;
+	unsigned char day;
+	unsigned char date;
+	unsigned char month;
+	unsigned char year;
+}DS1307Time;
 #endif
