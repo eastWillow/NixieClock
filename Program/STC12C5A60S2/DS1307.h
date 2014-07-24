@@ -1,7 +1,7 @@
 #ifndef _DS1307_
 #define _DS1307_
+#include <I2C.h>
 #define DS1307_DEVICES_ADRESS 0xD0
-
 #define DS1307_SECONDS 0x00
 #define DS1307_MINUTES 0X01
 #define DS1307_HOURS 0X02
@@ -23,4 +23,8 @@ typedef struct {
 	unsigned char month;
 	unsigned char year;
 }DS1307Time;
+DS1307Time time;
+void gotDS1307time (void);
+void resetDS1307time(void);
+#include <DS1307.c>
 #endif
