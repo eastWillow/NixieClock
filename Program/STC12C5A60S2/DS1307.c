@@ -20,12 +20,12 @@ void gotDS1307time (void){
 	I2CSendAck(1);
 	I2CEnd();
 }
-void resetDS1307time(void){
+void resetDS1307time(unsigned char seconds,unsigned char minutes,unsigned char hours){
 	I2CStart();
 	I2CSendByte(DS1307_DEVICES_ADRESS);
 	I2CSendByte(DS1307_SECONDS);
-	I2CSendByte(0x55);
-	I2CSendByte(0x59);
-	I2CSendByte(0x00);
+	I2CSendByte(seconds);
+	I2CSendByte(minutes);
+	I2CSendByte(hours);
 	I2CEnd();
 }

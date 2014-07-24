@@ -25,6 +25,6 @@ typedef struct {
 }DS1307Time;
 DS1307Time time;
 void gotDS1307time (void);
-void resetDS1307time(void);
+void resetDS1307time(unsigned char seconds,unsigned char minutes,unsigned char hours);
 #include <DS1307.c>
 #endif
