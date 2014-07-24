@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/24/2014  14:43:40  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/24/2014  14:48:50  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -35,21 +35,21 @@ LINK MAP OF MODULE:  nixieclockSTC (NIXIECLOCK)
                     0003H     07FDH                  *** GAP ***
             CODE    0800H     00F6H     UNIT         ?C?LIB_CODE
             CODE    08F6H     008CH     UNIT         ?C_C51STARTUP
-            CODE    0982H     007BH     UNIT         ?PR?MAIN?NIXIECLOCK
-            CODE    09FDH     0054H     UNIT         ?PR?GOTDS1307TIME?NIXIECLOCK
-            CODE    0A51H     002DH     UNIT         ?PR?_I2CSENDBYTE?NIXIECLOCK
-            CODE    0A7EH     0028H     UNIT         ?PR?I2CRECVBYTE?NIXIECLOCK
-            CODE    0AA6H     001BH     UNIT         ?PR?_RESETDS1307TIME?NIXIECLOCK
-            CODE    0AC1H     0011H     UNIT         ?PR?I2CSTART?NIXIECLOCK
-            CODE    0AD2H     000EH     UNIT         ?PR?I2CSENDACK?NIXIECLOCK
-            CODE    0AE0H     000EH     UNIT         ?PR?AVOIDGHOST?NIXIECLOCK
-            CODE    0AEEH     000DH     UNIT         ?PR?I2CRECEIVEACK?NIXIECLOCK
-            CODE    0AFBH     000CH     UNIT         ?PR?I2CEND?NIXIECLOCK
-            CODE    0B07H     000BH     UNIT         ?PR?DELAY5US?NIXIECLOCK
-            CODE    0B12H     000BH     UNIT         ?PR?DELAY700US?NIXIECLOCK
-            CODE    0B1DH     000BH     UNIT         ?PR?DELAY50US?NIXIECLOCK
-            CODE    0B28H     0009H     UNIT         ?C_INITSEG
-            CODE    0B31H     0006H     UNIT         ?CO?NIXIECLOCK
+            CODE    0982H     0070H     UNIT         ?PR?MAIN?NIXIECLOCK
+            CODE    09F2H     0054H     UNIT         ?PR?GOTDS1307TIME?NIXIECLOCK
+            CODE    0A46H     002DH     UNIT         ?PR?_I2CSENDBYTE?NIXIECLOCK
+            CODE    0A73H     0028H     UNIT         ?PR?I2CRECVBYTE?NIXIECLOCK
+            CODE    0A9BH     001BH     UNIT         ?PR?_RESETDS1307TIME?NIXIECLOCK
+            CODE    0AB6H     0012H     UNIT         ?PR?AVOIDGHOST?NIXIECLOCK
+            CODE    0AC8H     0011H     UNIT         ?PR?I2CSTART?NIXIECLOCK
+            CODE    0AD9H     000EH     UNIT         ?PR?I2CSENDACK?NIXIECLOCK
+            CODE    0AE7H     000DH     UNIT         ?PR?I2CRECEIVEACK?NIXIECLOCK
+            CODE    0AF4H     000CH     UNIT         ?PR?I2CEND?NIXIECLOCK
+            CODE    0B00H     000BH     UNIT         ?PR?DELAY5US?NIXIECLOCK
+            CODE    0B0BH     000BH     UNIT         ?PR?DELAY700US?NIXIECLOCK
+            CODE    0B16H     000BH     UNIT         ?PR?DELAY50US?NIXIECLOCK
+            CODE    0B21H     0009H     UNIT         ?C_INITSEG
+            CODE    0B2AH     0006H     UNIT         ?CO?NIXIECLOCK
 
 
 
@@ -59,7 +59,7 @@ OVERLAY MAP OF MODULE:   nixieclockSTC (NIXIECLOCK)
 SEGMENT                                    BIT_GROUP          DATA_GROUP 
   +--> CALLED SEGMENT                   START    LENGTH     START    LENGTH
 ---------------------------------------------------------------------------
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2014  14:43:40  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2014  14:48:50  PAGE 2
 
 
 ?C_C51STARTUP                           -----    -----      -----    -----
@@ -116,86 +116,86 @@ SYMBOL TABLE OF MODULE:  nixieclockSTC (NIXIECLOCK)
   D:00A0H         PUBLIC        P2
   D:0008H         PUBLIC        number
   D:00A8H         PUBLIC        IE
-  C:0B07H         PUBLIC        Delay5us
+  C:0B00H         PUBLIC        Delay5us
   B:0090H.2       PUBLIC        HV_EN
-  C:0AEEH         PUBLIC        I2CReceiveAck
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2014  14:43:40  PAGE 3
+  C:0AE7H         PUBLIC        I2CReceiveAck
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2014  14:48:50  PAGE 3
 
 
   D:00B8H         PUBLIC        IP
-  C:0AE0H         PUBLIC        avoidGhost
+  C:0AB6H         PUBLIC        avoidGhost
   D:00D8H         PUBLIC        CCON
   C:0982H         PUBLIC        main
   D:000EH         PUBLIC        time
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  C:0AA6H         PUBLIC        _resetDS1307time
+  C:0A9BH         PUBLIC        _resetDS1307time
   B:0090H.3       PUBLIC        NUMBER_EN
-  C:0B1DH         PUBLIC        Delay50us
-  C:0B31H         SYMBOL        _?ix1000
-  C:0AC1H         PUBLIC        I2CStart
-  C:0AFBH         PUBLIC        I2CEnd
+  C:0B16H         PUBLIC        Delay50us
+  C:0B2AH         SYMBOL        _?ix1000
+  C:0AC8H         PUBLIC        I2CStart
+  C:0AF4H         PUBLIC        I2CEnd
   B:0090H.0       PUBLIC        SDA
-  C:0AD2H         PUBLIC        I2CSendAck
-  C:09FDH         PUBLIC        gotDS1307time
-  C:0A5BH         PUBLIC        _I2CSendByte
+  C:0AD9H         PUBLIC        I2CSendAck
+  C:09F2H         PUBLIC        gotDS1307time
+  C:0A50H         PUBLIC        _I2CSendByte
   B:0090H.1       PUBLIC        SCL
-  C:0A7EH         PUBLIC        I2CRecvByte
-  C:0B12H         PUBLIC        Delay700us
+  C:0A73H         PUBLIC        I2CRecvByte
+  C:0B0BH         PUBLIC        Delay700us
   D:00D0H         PUBLIC        PSW
   -------         PROC          DELAY5US
   -------         DO            
   D:0007H         SYMBOL        i
   D:0006H         SYMBOL        j
   -------         ENDDO         
-  C:0B07H         LINE#         10
-  C:0B07H         LINE#         11
-  C:0B07H         LINE#         14
-  C:0B08H         LINE#         15
-  C:0B09H         LINE#         16
-  C:0B0BH         LINE#         17
-  C:0B0DH         LINE#         19
-  C:0B0DH         LINE#         20
-  C:0B0FH         LINE#         21
-  C:0B11H         LINE#         22
+  C:0B00H         LINE#         10
+  C:0B00H         LINE#         11
+  C:0B00H         LINE#         14
+  C:0B01H         LINE#         15
+  C:0B02H         LINE#         16
+  C:0B04H         LINE#         17
+  C:0B06H         LINE#         19
+  C:0B06H         LINE#         20
+  C:0B08H         LINE#         21
+  C:0B0AH         LINE#         22
   -------         ENDPROC       DELAY5US
   -------         PROC          I2CSTART
-  C:0AC1H         LINE#         23
-  C:0AC1H         LINE#         24
-  C:0AC3H         LINE#         25
-  C:0AC5H         LINE#         26
-  C:0AC8H         LINE#         27
-  C:0ACAH         LINE#         28
-  C:0ACDH         LINE#         29
-  C:0ACFH         LINE#         30
+  C:0AC8H         LINE#         23
+  C:0AC8H         LINE#         24
+  C:0ACAH         LINE#         25
+  C:0ACCH         LINE#         26
+  C:0ACFH         LINE#         27
+  C:0AD1H         LINE#         28
+  C:0AD4H         LINE#         29
+  C:0AD6H         LINE#         30
   -------         ENDPROC       I2CSTART
   -------         PROC          I2CEND
-  C:0AFBH         LINE#         32
-  C:0AFBH         LINE#         33
-  C:0AFDH         LINE#         34
-  C:0AFFH         LINE#         35
-  C:0B02H         LINE#         36
-  C:0B04H         LINE#         37
+  C:0AF4H         LINE#         32
+  C:0AF4H         LINE#         33
+  C:0AF6H         LINE#         34
+  C:0AF8H         LINE#         35
+  C:0AFBH         LINE#         36
+  C:0AFDH         LINE#         37
   -------         ENDPROC       I2CEND
   -------         PROC          I2CSENDACK
   B:0020H.0       SYMBOL        ACK
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2014  14:43:40  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2014  14:48:50  PAGE 4
 
 
-  C:0AD2H         LINE#         39
-  C:0AD2H         LINE#         40
-  C:0AD6H         LINE#         41
-  C:0AD8H         LINE#         42
-  C:0ADBH         LINE#         43
-  C:0ADDH         LINE#         44
+  C:0AD9H         LINE#         39
+  C:0AD9H         LINE#         40
+  C:0ADDH         LINE#         41
+  C:0ADFH         LINE#         42
+  C:0AE2H         LINE#         43
+  C:0AE4H         LINE#         44
   -------         ENDPROC       I2CSENDACK
   -------         PROC          I2CRECEIVEACK
-  C:0AEEH         LINE#         46
-  C:0AEEH         LINE#         47
-  C:0AF0H         LINE#         48
-  C:0AF3H         LINE#         50
-  C:0AF6H         LINE#         52
-  C:0AF8H         LINE#         53
+  C:0AE7H         LINE#         46
+  C:0AE7H         LINE#         47
+  C:0AE9H         LINE#         48
+  C:0AECH         LINE#         50
+  C:0AEFH         LINE#         52
+  C:0AF1H         LINE#         53
   -------         ENDPROC       I2CRECEIVEACK
   -------         PROC          L?0047
   -------         ENDPROC       L?0047
@@ -204,73 +204,73 @@ SYMBOL TABLE OF MODULE:  nixieclockSTC (NIXIECLOCK)
   -------         DO            
   D:0003H         SYMBOL        i
   -------         ENDDO         
-  C:0A5BH         LINE#         55
-  C:0A5DH         LINE#         57
-  C:0A5FH         LINE#         58
-  C:0A6DH         LINE#         59
-  C:0A6FH         LINE#         60
-  C:0A72H         LINE#         61
-  C:0A74H         LINE#         62
-  C:0A77H         LINE#         63
-  C:0A7BH         LINE#         64
+  C:0A50H         LINE#         55
+  C:0A52H         LINE#         57
+  C:0A54H         LINE#         58
+  C:0A62H         LINE#         59
+  C:0A64H         LINE#         60
+  C:0A67H         LINE#         61
+  C:0A69H         LINE#         62
+  C:0A6CH         LINE#         63
+  C:0A70H         LINE#         64
   -------         ENDPROC       _I2CSENDBYTE
   -------         PROC          I2CRECVBYTE
   -------         DO            
   D:0004H         SYMBOL        i
   D:0005H         SYMBOL        buffer
   -------         ENDDO         
-  C:0A7EH         LINE#         66
-  C:0A7EH         LINE#         68
-  C:0A80H         LINE#         69
-  C:0A82H         LINE#         70
-  C:0A83H         LINE#         71
-  C:0A8FH         LINE#         72
-  C:0A91H         LINE#         73
-  C:0A94H         LINE#         74
-  C:0A9AH         LINE#         75
-  C:0A9CH         LINE#         76
-  C:0A9FH         LINE#         77
-  C:0AA3H         LINE#         78
-  C:0AA5H         LINE#         79
+  C:0A73H         LINE#         66
+  C:0A73H         LINE#         68
+  C:0A75H         LINE#         69
+  C:0A77H         LINE#         70
+  C:0A78H         LINE#         71
+  C:0A84H         LINE#         72
+  C:0A86H         LINE#         73
+  C:0A89H         LINE#         74
+  C:0A8FH         LINE#         75
+  C:0A91H         LINE#         76
+  C:0A94H         LINE#         77
+  C:0A98H         LINE#         78
+  C:0A9AH         LINE#         79
   -------         ENDPROC       I2CRECVBYTE
   -------         PROC          GOTDS1307TIME
-  C:09FDH         LINE#         1
-  C:09FDH         LINE#         2
-  C:09FDH         LINE#         3
-  C:09FDH         LINE#         4
-  C:0A00H         LINE#         5
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2014  14:43:40  PAGE 5
+  C:09F2H         LINE#         1
+  C:09F2H         LINE#         2
+  C:09F2H         LINE#         3
+  C:09F2H         LINE#         4
+  C:09F5H         LINE#         5
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2014  14:48:50  PAGE 5
 
 
-  C:0A03H         LINE#         6
-  C:0A08H         LINE#         7
-  C:0A0DH         LINE#         8
-  C:0A12H         LINE#         9
-  C:0A17H         LINE#         10
-  C:0A1CH         LINE#         11
-  C:0A21H         LINE#         12
-  C:0A26H         LINE#         13
-  C:0A2BH         LINE#         14
-  C:0A30H         LINE#         15
-  C:0A35H         LINE#         16
-  C:0A3AH         LINE#         17
-  C:0A3FH         LINE#         18
-  C:0A44H         LINE#         19
-  C:0A49H         LINE#         20
-  C:0A4EH         LINE#         21
+  C:09F8H         LINE#         6
+  C:09FDH         LINE#         7
+  C:0A02H         LINE#         8
+  C:0A07H         LINE#         9
+  C:0A0CH         LINE#         10
+  C:0A11H         LINE#         11
+  C:0A16H         LINE#         12
+  C:0A1BH         LINE#         13
+  C:0A20H         LINE#         14
+  C:0A25H         LINE#         15
+  C:0A2AH         LINE#         16
+  C:0A2FH         LINE#         17
+  C:0A34H         LINE#         18
+  C:0A39H         LINE#         19
+  C:0A3EH         LINE#         20
+  C:0A43H         LINE#         21
   -------         ENDPROC       GOTDS1307TIME
   -------         PROC          _RESETDS1307TIME
   D:0004H         SYMBOL        seconds
   D:0001H         SYMBOL        minutes
   D:0002H         SYMBOL        hours
-  C:0AA6H         LINE#         23
-  C:0AACH         LINE#         24
-  C:0AACH         LINE#         25
-  C:0AACH         LINE#         26
-  C:0AAFH         LINE#         27
-  C:0AB4H         LINE#         28
-  C:0AB9H         LINE#         29
-  C:0ABEH         LINE#         30
+  C:0A9BH         LINE#         23
+  C:0AA1H         LINE#         24
+  C:0AA1H         LINE#         25
+  C:0AA1H         LINE#         26
+  C:0AA4H         LINE#         27
+  C:0AA9H         LINE#         28
+  C:0AAEH         LINE#         29
+  C:0AB3H         LINE#         30
   -------         ENDPROC       _RESETDS1307TIME
   -------         PROC          MAIN
   -------         DO            
@@ -281,68 +281,65 @@ SYMBOL TABLE OF MODULE:  nixieclockSTC (NIXIECLOCK)
   C:0982H         LINE#         17
   C:0995H         LINE#         19
   C:0995H         LINE#         20
-  C:0997H         LINE#         21
-  C:0999H         LINE#         22
-  C:099CH         LINE#         23
-  C:09A2H         LINE#         24
-  C:09A9H         LINE#         25
-  C:09AFH         LINE#         26
-  C:09B6H         LINE#         27
-  C:09BCH         LINE#         28
-  C:09C3H         LINE#         29
-  C:09C5H         LINE#         30
-  C:09C7H         LINE#         31
-  C:09CCH         LINE#         32
-  C:09D4H         LINE#         33
-  C:09D7H         LINE#         34
-  C:09DAH         LINE#         35
-  C:09E2H         LINE#         36
-  C:09E5H         LINE#         37
-  C:09E8H         LINE#         38
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2014  14:43:40  PAGE 6
-
-
+  C:0998H         LINE#         21
+  C:099EH         LINE#         22
+  C:09A5H         LINE#         23
+  C:09ABH         LINE#         24
+  C:09B2H         LINE#         25
+  C:09B8H         LINE#         26
+  C:09BFH         LINE#         27
+  C:09C4H         LINE#         28
+  C:09CCH         LINE#         29
+  C:09CFH         LINE#         30
+  C:09D7H         LINE#         31
+  C:09DAH         LINE#         32
+  C:09DDH         LINE#         33
   -------         ENDPROC       MAIN
   -------         PROC          DELAY700US
   -------         DO            
   D:0007H         SYMBOL        i
   D:0006H         SYMBOL        j
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/24/2014  14:48:50  PAGE 6
+
+
   -------         ENDDO         
-  C:0B12H         LINE#         43
-  C:0B12H         LINE#         44
-  C:0B12H         LINE#         47
-  C:0B13H         LINE#         48
-  C:0B14H         LINE#         49
-  C:0B16H         LINE#         50
-  C:0B18H         LINE#         52
-  C:0B18H         LINE#         53
-  C:0B1AH         LINE#         54
-  C:0B1CH         LINE#         55
+  C:0B0BH         LINE#         38
+  C:0B0BH         LINE#         39
+  C:0B0BH         LINE#         42
+  C:0B0CH         LINE#         43
+  C:0B0DH         LINE#         44
+  C:0B0FH         LINE#         45
+  C:0B11H         LINE#         47
+  C:0B11H         LINE#         48
+  C:0B13H         LINE#         49
+  C:0B15H         LINE#         50
   -------         ENDPROC       DELAY700US
   -------         PROC          DELAY50US
   -------         DO            
   D:0007H         SYMBOL        i
   D:0006H         SYMBOL        j
   -------         ENDDO         
-  C:0B1DH         LINE#         56
-  C:0B1DH         LINE#         57
-  C:0B1DH         LINE#         60
-  C:0B1EH         LINE#         61
-  C:0B1FH         LINE#         62
-  C:0B21H         LINE#         63
-  C:0B23H         LINE#         65
-  C:0B23H         LINE#         66
-  C:0B25H         LINE#         67
-  C:0B27H         LINE#         68
+  C:0B16H         LINE#         51
+  C:0B16H         LINE#         52
+  C:0B16H         LINE#         55
+  C:0B17H         LINE#         56
+  C:0B18H         LINE#         57
+  C:0B1AH         LINE#         58
+  C:0B1CH         LINE#         60
+  C:0B1CH         LINE#         61
+  C:0B1EH         LINE#         62
+  C:0B20H         LINE#         63
   -------         ENDPROC       DELAY50US
   -------         PROC          AVOIDGHOST
-  C:0AE0H         LINE#         69
-  C:0AE0H         LINE#         70
-  C:0AE2H         LINE#         71
-  C:0AE5H         LINE#         72
-  C:0AE8H         LINE#         73
-  C:0AEBH         LINE#         74
-  C:0AEDH         LINE#         75
+  C:0AB6H         LINE#         64
+  C:0AB6H         LINE#         65
+  C:0AB8H         LINE#         66
+  C:0ABAH         LINE#         67
+  C:0ABDH         LINE#         68
+  C:0AC0H         LINE#         69
+  C:0AC3H         LINE#         70
+  C:0AC5H         LINE#         71
+  C:0AC7H         LINE#         72
   -------         ENDPROC       AVOIDGHOST
   -------         ENDMOD        NIXIECLOCK
 
@@ -354,8 +351,8 @@ SYMBOL TABLE OF MODULE:  nixieclockSTC (NIXIECLOCK)
     SEGMENT: ?PR?_RESETDS1307TIME?NIXIECLOCK
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01B4H BYTE (21%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01ADH BYTE (20%) *
 ******************************************************************************
 
-Program Size: data=30.1 xdata=0 code=826
+Program Size: data=30.1 xdata=0 code=819
 LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

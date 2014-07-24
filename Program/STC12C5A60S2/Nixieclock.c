@@ -17,8 +17,6 @@ void main(void){
 	char scan[6]={0xfe,0xfd,0xfb,0xf7,0xef,0xdf};
 	int i;
 	while(1){
-		HV_EN = 1;
-		NUMBER_EN = 1;
 		gotDS1307time();
 		number[0]=time.seconds&0x0f;
 		number[1]=time.seconds>>4;
@@ -26,11 +24,8 @@ void main(void){
 		number[3]=time.minutes>>4;
 		number[4]=time.hours&0x0f;
 		number[5]=time.hours>>4;
-		NUMBER_EN = 0;
-		HV_EN = 0;
 		for(i=0;i<6;i++){
 			NUMBER=number[i];
-			avoidGhost();
 			avoidGhost();
 			DISPLAY = scan[i];
 			Delay700us();
@@ -67,9 +62,11 @@ void Delay50us()		//@12.000MHz
 	} while (--i);
 }
 void avoidGhost(){
+	HV_EN=1;
 	NUMBER_EN = 1;
 	Delay50us();
 	DISPLAY=0xff;
   Delay50us();
 	NUMBER_EN=0;
+	HV_EN=0;
 }

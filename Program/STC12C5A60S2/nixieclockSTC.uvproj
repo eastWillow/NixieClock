@@ -289,7 +289,7 @@
             <uAregs>0</uAregs>
             <UseInterruptVector>1</UseInterruptVector>
             <Fuzzy>3</Fuzzy>
-            <Optimize>0</Optimize>
+            <Optimize>8</Optimize>
             <WarningLevel>2</WarningLevel>
             <SizeSpeed>1</SizeSpeed>
             <ObjectExtend>1</ObjectExtend>
@@ -352,9 +352,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>DS1307.c</FileName>
+              <FileName>Nixieclock.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\DS1307.c</FilePath>
+              <FilePath>.\Nixieclock.c</FilePath>
             </File>
           </Files>
         </Group>
